@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="700"
+   height="350"
+   viewBox="0 0 700 350"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="single-octave-piano.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="0.5543368"
+     inkscape:cx="142.51264"
+     inkscape:cy="41.491021"
+     inkscape:window-width="1920"
+     inkscape:window-height="1111"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="swatch6">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop6" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="White Keys"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline;fill:#f9f9f9">
+    <rect
+       style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:0.703905;stroke-opacity:1"
+       id="C1"
+       width="99.296097"
+       height="349.29608"
+       x="0.3519524"
+       y="0.35195231"
+       inkscape:label="C1" />
+    <rect
+       style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:0.703905;stroke-opacity:1"
+       id="E1"
+       width="99.296097"
+       height="349.29608"
+       x="200.35196"
+       y="0.35195231" />
+    <rect
+       style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:0.703905;stroke-opacity:1"
+       id="G1"
+       width="99.296097"
+       height="349.29608"
+       x="400.35193"
+       y="0.35195231" />
+    <rect
+       style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:0.703905;stroke-opacity:1"
+       id="D1"
+       width="99.296097"
+       height="349.29608"
+       x="100.35195"
+       y="0.35195231" />
+    <rect
+       style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:0.703905;stroke-opacity:1"
+       id="A1"
+       width="99.296097"
+       height="349.29608"
+       x="500.35193"
+       y="0.35195231" />
+    <rect
+       style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:0.703905;stroke-opacity:1"
+       id="F1"
+       width="99.296097"
+       height="349.29608"
+       x="300.35193"
+       y="0.35195231" />
+    <rect
+       style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:0.703905;stroke-opacity:1"
+       id="B1"
+       width="99.296097"
+       height="349.29608"
+       x="600.35193"
+       y="0.35195231" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Black Keys">
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.670113;stroke-opacity:1"
+       id="D_1"
+       width="74.329887"
+       height="209.33037"
+       x="162.83508"
+       y="0.33505628" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.670113;stroke-opacity:1"
+       id="C_1"
+       width="74.329887"
+       height="209.33037"
+       x="62.835056"
+       y="0.33505628" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.670105;stroke-opacity:1"
+       id="F_1"
+       width="74.329895"
+       height="209.3299"
+       x="362.83508"
+       y="0.33505273" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.670113;stroke-opacity:1"
+       id="A_2"
+       width="74.329887"
+       height="209.33037"
+       x="562.83508"
+       y="0.33505628" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.670113;stroke-opacity:1"
+       id="G_1"
+       width="74.329887"
+       height="209.33037"
+       x="462.83508"
+       y="0.33505628" />
+  </g>
+</svg>
