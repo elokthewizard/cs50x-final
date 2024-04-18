@@ -1,15 +1,67 @@
+from flask import Flask, redirect, url_for, request
+app = Flask(__name__)
+
+@app.route('/success/<name>')
+def success(name):
+	return 'welcome %s' % name
+
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+	if request.method == "POST":
+		user = request.form['nm']
+		return redirect(url_for('success', name=user))
+	else:
+		user = request.form['nm']
+		return redirect(url_for('success', name=user))
+	
+if __name__ == '__main__':
+	app.run(debug=True)
+
 # TO DO: setup flask lol
 octave = 12
 
+root = request.form.get('rootnote', "C")
+
+def switch(root):
+	if root == "C":
+		root = 0
+	if root == "C#":
+		root = 1
+	if root == "D":
+		root = 2
+	if root == "D#":
+		root = 3
+	if root == "E":
+		root = 4
+	if root == "F":
+		root = 5
+	if root == "F#":
+		root = 6
+	if root == "G":
+		root = 7
+	if root == "G#":
+		root = 8
+	if root == "A":
+		root = 9
+	if root == "A#":
+		root = 10
+	if root == "B":
+		root = 11
+	return root
+
+
 def create_maj(root):
+	root = root
 	third = root + 4
 	fifth = root + 7
 	
 def create_min(root):
+	root = root
 	third = root + 4
 	fifth = root + 7
 	
 def create_7(root):
+	root = root
 	third = root + 4
 	fifth = root + 7
 	seventh = root + 10
