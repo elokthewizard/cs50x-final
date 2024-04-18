@@ -1,4 +1,6 @@
 # TO DO: setup flask lol
+octave = 12
+
 def create_maj(root):
 	third = root + 4
 	fifth = root + 7
@@ -7,7 +9,7 @@ def create_min(root):
 	third = root + 4
 	fifth = root + 7
 	
-def create_dom7(root):
+def create_7(root):
 	third = root + 4
 	fifth = root + 7
 	seventh = root + 10
