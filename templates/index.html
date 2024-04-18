@@ -8,39 +8,40 @@
 <body>
     <main>
 
-        <img src="/images/single-octave-piano.svg">
+        <img id="keyboard" src="/images/single-octave-piano.svg">
 
         <div id="root-selection">
             <div id="keyboard">
                 <div class="black-keys">
 
-                    <button>C#</button>
-                    <button>D#</button>
-                    <button>F#</button>
-                    <button>G#</button>
-                    <button>A#</button>
+                    <input type="radio" id="csharp-key" name="rootnote">C#
+                    <input type="radio" id="dsharp-key" name="rootnote">D#
+                    <input type="radio" id="fsharp-key" name="rootnote">F#
+                    <input type="radio" id="gsharp-key" name="rootnote">G#
+                    <input type="radio" id="asharp-key" name="rootnote">A#
 
                 </div>
                 <div class="white-keys">
 
-                    <button>C</button>
-                    <button>D</button>
-                    <button>E</button>
-                    <button>F</button>
-                    <button>G</button>
-                    <button>A</button>
-                    <button>B</button>
+                    <input type="radio" id="c-key" name="rootnote" checked>C
+                    <input type="radio" id="d-key" name="rootnote">D
+                    <input type="radio" id="e-key" name="rootnote">E
+                    <input type="radio" id="f-key" name="rootnote">F
+                    <input type="radio" id="g-key" name="rootnote">G
+                    <input type="radio" id="a-key" name="rootnote">A
+                    <input type="radio" id="b-key" name="rootnote">B
 
                 </div>   
 
             </div>
             <div id="chord-selection">
 
-                <button>Major</button>
-                <button>Minor</button>
+                <input type="radio" id="major" name="chord" checked>Major
+                <input type="radio" id="minor" name="chord">Minor
 
             </div>
         </div>
     </main>
+    <script src="/static/main.js"></script>
 </body>
 </html>
