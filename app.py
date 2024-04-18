@@ -22,8 +22,7 @@ octave = 12
 
 root = request.form.get('rootnote', "C")
 
-def switch(root):
-	root_notes = {
+root_notes = {
 		"C": 0,
 		"C#": 1,
 		"D": 2,
@@ -36,15 +35,32 @@ def switch(root):
 		"A": 9,
 		"A#": 10,
 		"B": 11,
-	}
+}
+
+reverse_root_notes = {
+	value: key for key, value in root_notes.items()}
+
+def digitize_note(root):
 	return root_notes.get(root, 0)
 
-
+def letterize_digit(digit):
+	return reverse_root_notes.get(digit)
+	
 def create_maj(root):
 	root = root
 	third = root + 4
 	fifth = root + 7
-	
+	return {root, third, fifth}
+
+# store valid chord values as ltters to be passed to css
+major = create_maj(0)
+chord = []
+
+for digit in major:
+    chord.append(letterize_digit(digit))
+
+
+
 def create_min(root):
 	root = root
 	third = root + 4
@@ -63,30 +79,36 @@ def create_min7(root):
 	seventh = root + 10
 	
 def create_maj7(root):
+	root = root
 	third = root + 4
 	fifth = root + 7
 	seventh = root + 11
 	
 def create_minMaj7(root):
+	root = root
 	third = root + 4
 	fifth = root + 7
 
 def create_maj6(root):
+	root = root
 	third = root + 4
 	fifth = root + 7
 	seventh = root + 9
 	
 def create_min6(root):
+	root = root
 	third = root + 3
 	fifth = root + 7
 	seventh = root + 9
 	
 def create_6over9(root):
+	root = root
 	third = root + 4
 	fifth = root + 7
 	seventh = root + octave + 2
 	
 def create_5(root):
+	root = root
 	fifth = root + 7
 	
 def create_9(root):
@@ -164,7 +186,7 @@ def create_add9(root):
 	root = root
 	third = root + 4
 	fifth = root + 7
-	ninth = root + octave + 2
+	seventh = root + octave + 2
 	
 def create_add2(root):
 	root = root
