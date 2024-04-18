@@ -23,31 +23,21 @@ octave = 12
 root = request.form.get('rootnote', "C")
 
 def switch(root):
-	if root == "C":
-		root = 0
-	if root == "C#":
-		root = 1
-	if root == "D":
-		root = 2
-	if root == "D#":
-		root = 3
-	if root == "E":
-		root = 4
-	if root == "F":
-		root = 5
-	if root == "F#":
-		root = 6
-	if root == "G":
-		root = 7
-	if root == "G#":
-		root = 8
-	if root == "A":
-		root = 9
-	if root == "A#":
-		root = 10
-	if root == "B":
-		root = 11
-	return root
+	root_notes = {
+		"C": 0,
+		"C#": 1,
+		"D": 2,
+		"D#": 3,
+		"E": 4,
+		"F": 5,
+		"F#": 6,
+		"G": 7,
+		"G#": 8,
+		"A": 9,
+		"A#": 10,
+		"B": 11,
+	}
+	return root_notes.get(root, 0)
 
 
 def create_maj(root):
