@@ -1,14 +1,19 @@
-from flask import Flask, redirect, request, render_template, url_for
+import os
+from flask import Flask, redirect, request, render_template, send_file
 app = Flask(__name__)
+
+# setup flask to run
 
 if __name__ == '__main__':
 	app.run(debug=True)
+
+# define routes
 
 @app.route('/success/<name>')
 def success(name):
 	return 'welcome %s' % name
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
 	if request.method == "POST":
 		print('woah')
