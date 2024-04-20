@@ -3,24 +3,63 @@ root = document.getElementById("rootnote");
 major = document.getElementById("major");
 minor = document.getElementById("minor");
 
+// # define an octave
+let root_notes = {
+    "C": 0,
+    "C&#35;": 1,
+    "D": 2,
+    "D&#35;": 3,
+    "E": 4,
+    "F": 5,
+    "F&#35;": 6,
+    "G": 7,
+    "G&#35;": 8,
+    "A": 9,
+    "A&#35;": 10,
+    "B": 11,
+}
+
+// inverse table of intervals
+
+let reversed_root_notes = {};
+
+for (let key in root_notes) {
+    let value = root_notes[key];
+    reversed_root_notes[value] = key;
+}
+
+// access svg
+// this should work but i cant find  a soultion
+const imgElement = document.getElementById("keyboard");
+const svgContent = imgElement.contentDocument;
+
+root = 0;
+
+function digitize_note(root) {
+ 	return root_notes.get(root, 0);
+}
+
+function letterize_digit(digit) {
+    return reversed_root_notes[digit];
+}
+
 if (major.checked) {
-    console.log("major");
-    root = 0;
     const createMaj = (root) => {
-        third = root + 4
-        fifth = root + 7
+        let third = root + 4;
+        let fifth = root + 7;
         return [root, third, fifth];
     };
-    const majorChord = createMaj(root)
-    for (const note of majorChord) {
+    const majorChord = createMaj(root);
+    console.log(majorChord);
+    for (let note of majorChord) {
+        note = letterize_digit(note);
+        console.log(note)
+        const divElement = svgContent.getElementById(note);
         
-        const divElement = document.getElementById(note);
         if (divElement) {
-            divElement.style.backgroundColor = "yellow";
+            divElement.style.fill = "yellow";
         }
-
     }
-    console.log(createMaj(root));
 }
 
 if (minor.checked) {
@@ -32,21 +71,7 @@ octave = 12
 root = 0
 // request.form.get('rootnote', "C")
 
-// # define an octave
-let root_notes = {
-		"C": 0,
-		"C#": 1,
-		"D": 2,
-		"D#": 3,
-		"E": 4,
-		"F": 5,
-		"F#": 6,
-		"G": 7,
-		"G#": 8,
-		"A": 9,
-		"A#": 10,
-		"B": 11,
-}
+
 
 // reverse_root_notes = {
 // 	value: key for key, value in root_notes.items()}

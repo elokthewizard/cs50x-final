@@ -4,6 +4,7 @@
 <svg
    width="700"
    height="350"
+   overflow="visible"
    viewBox="0 0 700 350"
    version="1.1"
    id="svg1"
@@ -49,50 +50,49 @@
       style="display:inline;fill:#f9f9f9">
       <rect
          style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:0.703905;stroke-opacity:1"
-         id="C1"
+         id="C"
          width="99.296097"
          height="349.29608"
          x="0.3519524"
-         y="0.35195231"
-         inkscape:label="C1" />
+         y="0.35195231" />
       <rect
          style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:0.703905;stroke-opacity:1"
-         id="D1"
+         id="D"
          width="99.296097"
          height="349.29608"
          x="100.35195"
          y="0.35195231" />
       <rect
          style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:0.703905;stroke-opacity:1"
-         id="E1"
+         id="E"
          width="99.296097"
          height="349.29608"
          x="200.35196"
          y="0.35195231" />
       <rect
          style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:0.703905;stroke-opacity:1"
-         id="F1"
+         id="F"
          width="99.296097"
          height="349.29608"
          x="300.35193"
          y="0.35195231" />
       <rect
          style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:0.703905;stroke-opacity:1"
-         id="G1"
+         id="G"
          width="99.296097"
          height="349.29608"
          x="400.35193"
          y="0.35195231" />
       <rect
          style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:0.703905;stroke-opacity:1"
-         id="A1"
+         id="A"
          width="99.296097"
          height="349.29608"
          x="500.35193"
          y="0.35195231" />
       <rect
          style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke:#000000;stroke-width:0.703905;stroke-opacity:1"
-         id="B1"
+         id="B"
          width="99.296097"
          height="349.29608"
          x="600.35193"
@@ -104,35 +104,35 @@
       inkscape:label="Black Keys">
       <rect
          style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.670113;stroke-opacity:1"
-         id="C_1"
+         id="C&#35;"
          width="74.329887"
          height="209.33037"
          x="62.835056"
          y="0.33505628" />
       <rect
          style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.670113;stroke-opacity:1"
-         id="D_1"
+         id="D&#35;"
          width="74.329887"
          height="209.33037"
          x="162.83508"
          y="0.33505628" />
       <rect
          style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.670105;stroke-opacity:1"
-         id="F_1"
+         id="F&#35;1"
          width="74.329895"
          height="209.3299"
          x="362.83508"
          y="0.33505273" />
       <rect
          style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.670113;stroke-opacity:1"
-         id="G_1"
+         id="G&#35;"
          width="74.329887"
          height="209.33037"
          x="462.83508"
          y="0.33505628" />
       <rect
          style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.670113;stroke-opacity:1"
-         id="A_2"
+         id="A&#35;"
          width="74.329887"
          height="209.33037"
          x="562.83508"
