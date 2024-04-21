@@ -5,21 +5,21 @@ minor = document.getElementById("minor");
 
 // # define an octave
 octave = 12
-root = 0
+root = 3
 
 // define list of notes
 let root_notes = {
     "C": 0,
-    "C&#35;": 1,
+    "Csharp": 1,
     "D": 2,
-    "D&#35;": 3,
+    "Dsharp": 3,
     "E": 4,
     "F": 5,
-    "F&#35;": 6,
+    "Fsharp": 6,
     "G": 7,
-    "G&#35;": 8,
+    "Gsharp": 8,
     "A": 9,
-    "A&#35;": 10,
+    "Asharp": 10,
     "B": 11,
 }
 
@@ -45,7 +45,7 @@ function letterize_digit(digit) {
 window.onload = function() {
     console.log("DOM loaded.");
     // calculate intervals
-    var chord = makeChord(0);
+    var chord = makeChord(root);
     console.log(chord)
     console.log(Array.isArray(chord))
     // draw chord
