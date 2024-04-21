@@ -4,6 +4,10 @@ major = document.getElementById("major");
 minor = document.getElementById("minor");
 
 // # define an octave
+octave = 12
+root = 0
+
+// define list of notes
 let root_notes = {
     "C": 0,
     "C&#35;": 1,
@@ -19,8 +23,12 @@ let root_notes = {
     "B": 11,
 }
 
-// inverse table of intervals
+// turn letters to numbers
+function digitize_note(root) {
+    return root_notes.get(root, 0);
+}
 
+// inverse list of notes 
 let reversed_root_notes = {};
 
 for (let key in root_notes) {
@@ -28,47 +36,62 @@ for (let key in root_notes) {
     reversed_root_notes[value] = key;
 }
 
-// access svg
-// this should work but i cant find  a soultion
-const imgElement = document.getElementById("keyboard");
-const svgContent = imgElement.contentDocument;
-
-root = 0;
-
-function digitize_note(root) {
- 	return root_notes.get(root, 0);
-}
-
+// return numbers to letters
 function letterize_digit(digit) {
-    return reversed_root_notes[digit];
+   return reversed_root_notes[digit];
 }
 
-if (major.checked) {
+// wait for DOM to load
+window.onload = function() {
+    console.log("DOM loaded.");
+    // calculate intervals
+    var chord = makeChord(0);
+    console.log(chord)
+    console.log(Array.isArray(chord))
+    // draw chord
+    drawChord(chord);
+};
+
+function makeChord(root) {
     const createMaj = (root) => {
         let third = root + 4;
         let fifth = root + 7;
         return [root, third, fifth];
     };
-    const majorChord = createMaj(root);
-    console.log(majorChord);
-    for (let note of majorChord) {
+    return createMaj(root);
+};
+
+function drawChord(chord) {
+    for (let note of chord) {
+        console.log(note);
         note = letterize_digit(note);
-        console.log(note)
-        const divElement = svgContent.getElementById(note);
-        
-        if (divElement) {
-            divElement.style.fill = "yellow";
+        console.log(note);
+        let styled = document.getElementById(note);
+        if (styled) {
+            styled.style.fill = "green";
+        } else {
+            console.log('No SVG element with ID', note);
         }
-    }
-}
+    };
+};
 
-if (minor.checked) {
-    console.log("minor");
-}
+// major chord test
+// let swag = true;
+// if (swag) {
+//     for (let note of chord) {
+//         note = letterize_digit(note);
+//         console.log(note)
+//     }
+// }
 
-octave = 12
 
-root = 0
+
+// minor chord test
+// if (minor.checked) {
+//     console.log("minor");
+// }
+
+
 // request.form.get('rootnote', "C")
 
 
