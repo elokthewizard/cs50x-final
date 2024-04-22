@@ -4,7 +4,7 @@ let chordSelection = document.getElementById("chord-selection");
 let minor = document.getElementById("minor");
 
 chordSelection.addEventListener("click", (e) => {
-    let schordType = e.target.id;
+    let chordType = e.target.id;
     console.log(chordType);
     return chordType;
 });
@@ -58,16 +58,213 @@ window.onload = function() {
     drawChord(chord);
 };
 
-function makeChord(root) {
-    if (chordType == "major") {
-        const createMaj = (root) => {
-            let third = root + 4;
-            let fifth = root + 7;
-            return [root, third, fifth];
-        };
-        return createMaj(root);
+// function makeChord(root) {
+//     if (chordType == "major") {
+//         const createMaj = (root) => {
+//             let third = root + 4;
+//             let fifth = root + 7;
+//             return [root, third, fifth];
+//         };
+//         return createMaj(root);
+//     };
+// };
+
+// define chords
+
+// rewrite chord functions as object methods
+const chordFunctions = {
+    major: function(root) {
+        let third = root + 4;
+        let fifth = root + 7;
+        return [root, third, fifth];
+    },
+    minor: function(root) {
+        let third = root + 3;
+        let fifth = root + 7;
+        return [root, third, fifth];
+    },
+    dom7: function(root) {
+        let third = root + 4;
+        let fifth = root + 7;
+        let seventh = root + 10;
+        return [root, third, fifth, seventh];
+    },
+    min7: function(root) {
+    	let third = root + 3;
+    	let fifth = root + 7;
+    	let seventh = root + 10;
+        return [root, third, fifth, seventh];
+    },
+    maj7: function(root) {
+        let third = root + 4;
+        let fifth = root + 7;
+        let seventh = root + 11;
+        return [root, third, fifth, seventh];
+    },
+    minMaj7: function(root) {
+        let third = root + 3;
+        let fifth = root + 7;
+        let seventh = root + 11;
+        return [root, third, fifth, seventh];
+    },
+    maj6: function(root) {
+        let third = root + 4;
+        let fifth = root + 7;
+        let seventh = root + 9;
+        return [root, third, fifth, seventh];
+    },
+    min6: function(root) {
+        let third = root + 3
+        let fifth = root + 7
+        let seventh = root + 9
+        return [root, third, fifth, seventh];
+    },
+    sixthNinth: function(root) {
+        let third = root + 4;
+        let fifth = root + 7;
+        let seventh = root + octave + 2;
+        return [root, third, fifth, seventh];
+    },
+    fifth: function(root) {
+        let fifth = root + 7;
+        return [root, fifth];
+    },
+    ninth: function(root) {
+        let third = root + 4;
+        let fifth = root + 7;
+        let seventh = root + 10;
+        let ninth = root + octave + 2;
+        return [root, third, fifth, seventh, ninth]
+    },
+    min9: function(root) {
+        let third = root + 3
+        let fifth = root + 7
+        let seventh = root + 10
+        let ninth = root + octave + 2
+        return [root, third, fifth, seventh, ninth]
+    },
+    maj9: function(root) {
+        let third = root + 4
+        let fifth = root + 7
+        let seventh = root + 11
+        let ninth = root + octave + 2
+        return [root, third, fifth, seventh, ninth]
+    },
+    eleventh: function(root) {
+        let third = root + 4
+        let fifth = root + 7
+        let seventh = root + 10
+        let ninth = root + octave + 2
+        let eleventh = root + octave + 5
+        return [root, third, fifth, seventh, ninth, eleventh]
+    },
+    min11: function(root) {
+        let third = root + 3
+        let fifth = root + 7
+        let seventh = root + 10
+        let ninth = root + octave + 2
+        let eleventh = root + octave + 5
+        return [root, third, fifth, seventh, ninth, eleventh]
+    },
+    maj11: function(root) {
+        let third = root + 4
+        let fifth = root + 7
+        let seventh = root + 11
+        let ninth = root + octave + 2
+        let eleventh = root + octave + 5
+        return [root, third, fifth, seventh, ninth, eleventh]
+    },
+    thirteenth: function(root) {
+        let third = root + 4
+        let fifth = root + 7
+        let seventh = root + 10
+        let ninth = root + octave + 2
+        let eleventh = root + octave + 5
+        let thirteenth = root + octave + 9
+        return [root, third, fifth, seventh, ninth, eleventh, thirteenth]
+    },
+    min13: function(root) {
+        let third = root + 3
+        let fifth = root + 7
+        let seventh = root + 10
+        let ninth = root + octave + 2
+        let eleventh = root + octave + 5
+        let thirteenth = root + octave + 9
+        return [root, third, fifth, seventh, ninth, eleventh, thirteenth]
+    },
+    maj13: function(root) {
+        let third = root + 4
+        let fifth = root + 7
+        let seventh = root + 11
+        let ninth = root + octave + 2
+        let thirteenth = root + octave + 9
+        return [root, third, fifth, seventh, ninth, eleventh, thirteenth]
+    },
+    add9: function(root) {
+        let third = root + 4
+        let fifth = root + 7
+        let seventh = root + octave + 2
+        return [root, third, fifth, seventh]
+    },
+    add2: function(root) {
+        let third = root + 2
+        let fifth = root + 4
+        let seventh = root + 7
+        return [root, third, fifth, seventh]
+    },
+    sevenMinusFive: function(root) {
+        let third = root + 4
+        let fifth = root + 6
+        let seventh = root + 10
+        return [root, third, fifth, seventh]
+    },
+    sevenPlusFive: function(root) {
+        let third = root + 4
+        let fifth = root + 8
+        let seventh = root + 10
+        return [root, third, fifth, seventh]
+    },
+    sus4: function(root) {
+        let third = root + 5
+        let fifth = root + 7      
+        return [root, third, fifth]
+    },
+    sus2: function(root) {
+        let third = root + 2
+        let fifth = root + 7
+        return [root, third, fifth]
+    },
+    diminished: function(root) {
+        let third = root + 3
+        let fifth = root + 6
+        return [root, third, fifth]
+    },
+    dim7: function(root) {
+        let third = root + 3
+        let fifth = root + 6
+        let seventh = root + 9
+        return [root, third, fifth, seventh]
+    },
+    min7b5: function(root) {
+        let third = root + 3
+        let fifth = root + 6
+        let seventh = root + 10
+        return [root, third, fifth, seventh]
+    },
+    aug: function(root) {
+        let third = root + 4;
+        let fifth = root + 8;
+        return [root, third, fifth]
+    },
+    aug7: function(root) {
+        let third = root + 4
+        let fifth = root + 8
+        let seventh = root + 10
+        return [root, third, fifth, seventh]
     }
-};
+} 
+
+const chord = chordFunctions[chordType] ? chordFunctions[chordType] : undefined;
 
 function drawChord(chord) {
     for (let note of chord) {
@@ -83,232 +280,5 @@ function drawChord(chord) {
     };
 };
 
-// major chord test
-// let swag = true;
-// if (swag) {
-//     for (let note of chord) {
-//         note = letterize_digit(note);
-//         console.log(note)
-//     }
-// }
-
-
-
-// minor chord test
-// if (minor.checked) {
-//     console.log("minor");
-// }
-
 
 // request.form.get('rootnote', "C")
-
-
-
-// reverse_root_notes = {
-// 	value: key for key, value in root_notes.items()}
-
-// def digitize_note(root):
-// 	return root_notes.get(root, 0)
-
-// def letterize_digit(digit):
-// 	return reverse_root_notes.get(digit)
-	
-
-
-// # store valid chord values as ltters to be passed to css
-// major = create_maj(0)
-// chord = []
-
-// for digit in major:
-//     chord.append(letterize_digit(digit))
-
-
-
-// def create_maj(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 7
-// 	return [root, third, fifth]
-
-// def create_min(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 7
-	
-// def create_7(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 7
-// 	seventh = root + 10
-	
-// def create_min7(root):
-// 	root = root
-// 	third = root + 3
-// 	fifth = root + 7
-// 	seventh = root + 10
-	
-// def create_maj7(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 7
-// 	seventh = root + 11
-	
-// def create_minMaj7(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 7
-
-// def create_maj6(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 7
-// 	seventh = root + 9
-	
-// def create_min6(root):
-// 	root = root
-// 	third = root + 3
-// 	fifth = root + 7
-// 	seventh = root + 9
-	
-// def create_6over9(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 7
-// 	seventh = root + octave + 2
-	
-// def create_5(root):
-// 	root = root
-// 	fifth = root + 7
-	
-// def create_9(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 7
-// 	seventh = root + 10
-// 	ninth = root + octave + 2
-	
-// def create_min9(root):
-// 	root = root
-// 	third = root + 3
-// 	fifth = root + 7
-// 	seventh = root + 10
-// 	ninth = root + octave + 2
-	
-// def create_maj9(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 7
-// 	seventh = root + 11
-// 	ninth = root + octave + 2
-	
-// def create_11(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 7
-// 	seventh = root + 10
-// 	ninth = root + octave + 2
-// 	eleventh = root + octave + 5
-	
-// def create_min11(root):
-// 	root = root
-// 	third = root + 3
-// 	fifth = root + 7
-// 	seventh = root + 10
-// 	ninth = root + octave + 2
-// 	eleventh = root + octave + 5
-	
-// def create_maj11(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 7
-// 	seventh = root + 11
-// 	ninth = root + octave + 2
-// 	eleventh = root + octave + 5
-	
-// def create_13(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 7
-// 	seventh = root + 10
-// 	ninth = root + octave + 2
-// 	eleventh = root + octave + 5
-// 	thirteenth = root + octave + 9
-	
-// def create_min13(root):
-// 	root = root
-// 	third = root + 3
-// 	fifth = root + 7
-// 	seventh = root + 10
-// 	ninth = root + octave + 2
-// 	eleventh = root + octave + 5
-// 	thirteenth = root + octave + 9
-	
-// def create_maj13(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 7
-// 	seventh = root + 11
-// 	ninth = root + octave + 2
-// 	thirteenth = root + octave + 9
-	
-// def create_add9(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 7
-// 	seventh = root + octave + 2
-	
-// def create_add2(root):
-// 	root = root
-// 	third = root + 2
-// 	fifth = root + 4
-// 	seventh = root + 7
-	
-// def create_7minus5(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 6
-// 	seventh = root + 10
-	
-// def create_7plus5(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 8
-// 	seventh = root + 10
-	
-// def create_sus4(root):
-// 	root = root
-// 	third = root + 5
-// 	fifth = root + 7
-	
-// def create_sus2(root):
-// 	root = root
-// 	third = root + 2
-// 	fifth = root + 7
-	
-// def create_dim(root):
-// 	root = root
-// 	third = root + 3
-// 	fifth = root + 6
-	
-// def create_dim7(root):
-// 	root = root
-// 	third = root + 3
-// 	fifth = root + 6
-// 	seventh = root + 9
-	
-// def create_min7b5(root):
-// 	root = root
-// 	third = root + 3
-// 	fifth = root + 6
-// 	seventh = root + 10
-	
-// def create_aug(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 8
-	
-// def create_aug7(root):
-// 	root = root
-// 	third = root + 4
-// 	fifth = root + 8
-// 	seventh = root + 10
