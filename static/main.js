@@ -1,11 +1,17 @@
-keyboard = document.getElementById("keyboard");
-root = document.getElementById("rootnote");
-major = document.getElementById("major");
-minor = document.getElementById("minor");
+let keyboard = document.getElementById("keyboard");
+let root = document.getElementById("rootnote");
+let chordSelection = document.getElementById("chord-selection");
+let minor = document.getElementById("minor");
+
+chordSelection.addEventListener("click", (e) => {
+    let schordType = e.target.id;
+    console.log(chordType);
+    return chordType;
+});
 
 // # define an octave
-octave = 12
-root = 3
+octave = 12;
+root = 0;
 
 // define list of notes
 let root_notes = {
@@ -21,12 +27,12 @@ let root_notes = {
     "A": 9,
     "Asharp": 10,
     "B": 11,
-}
+};
 
 // turn letters to numbers
 function digitize_note(root) {
     return root_notes.get(root, 0);
-}
+};
 
 // inverse list of notes 
 let reversed_root_notes = {};
@@ -34,12 +40,12 @@ let reversed_root_notes = {};
 for (let key in root_notes) {
     let value = root_notes[key];
     reversed_root_notes[value] = key;
-}
+};
 
 // return numbers to letters
 function letterize_digit(digit) {
    return reversed_root_notes[digit];
-}
+};
 
 // wait for DOM to load
 window.onload = function() {
@@ -53,12 +59,14 @@ window.onload = function() {
 };
 
 function makeChord(root) {
-    const createMaj = (root) => {
-        let third = root + 4;
-        let fifth = root + 7;
-        return [root, third, fifth];
-    };
-    return createMaj(root);
+    if (chordType == "major") {
+        const createMaj = (root) => {
+            let third = root + 4;
+            let fifth = root + 7;
+            return [root, third, fifth];
+        };
+        return createMaj(root);
+    }
 };
 
 function drawChord(chord) {
