@@ -10,9 +10,10 @@ rootnote.addEventListener("click", (e) => {
 });
 
 chordSelection.addEventListener("click", (e) => {
-    let chordType = e.target.id;
-    console.log(chordType);
-    return chordType;
+    if (e.target.tagName == "INPUT" && chordFunctions.hasOwnProperty(e.target.id)) {
+        let chordType = e.target.id;
+        alert(chordType);
+    };
 });
 
 // # define an octave
@@ -65,7 +66,8 @@ window.onload = function() {
             // console.log(chord)
             // console.log(Array.isArray(chord))
     // draw chord
-    drawChord(chordFunctions[chordType](root));
+    let chord = chordFunctions[chordType](root)
+    drawChord(chord);
 };
 
 // draw chord
