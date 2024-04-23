@@ -1,7 +1,13 @@
-let keyboard = document.getElementById("keyboard");
-let root = document.getElementById("rootnote");
+let rootnote = document.getElementById("root-selection");
 let chordSelection = document.getElementById("chord-selection");
 let minor = document.getElementById("minor");
+
+rootnote.addEventListener("click", (e) => {
+    if (e.target.tagName == "INPUT" && root_notes.hasOwnProperty(e.target.id)) {
+        let root = e.target.id;
+        alert(root);
+    };
+});
 
 chordSelection.addEventListener("click", (e) => {
     let chordType = e.target.id;
