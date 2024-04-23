@@ -1,18 +1,19 @@
 let rootnote = document.getElementById("root-selection");
 let chordSelection = document.getElementById("chord-selection");
 let minor = document.getElementById("minor");
-let root;
-let chordType;
+let root ="";
+let chordType = "";
 
 
 // handle rootnote selection
 rootnote.addEventListener("click", (e) => {
     if (e.target.tagName == "INPUT" && root_notes.hasOwnProperty(e.target.id)) {
         root = e.target.id;
-        if (chordType === "undefined") {
+        if (chordType == "") {
             chordType = "major";
         }
-        alert(root);
+        // alert(root);
+        // alert(chordType);
         mapTones();
     };
 });
@@ -21,7 +22,11 @@ rootnote.addEventListener("click", (e) => {
 chordSelection.addEventListener("click", (e) => {
     if (e.target.tagName == "INPUT" && chordFunctions.hasOwnProperty(e.target.id)) {
         chordType = e.target.id;
-        alert(chordType);
+        if (root == "") {
+            root = "C";
+        }
+        // alert(chordType);
+        // alert(root);
         mapTones();
     };
 });
@@ -62,7 +67,7 @@ function letterize_digit(digit) {
 
 // letters to numbers
 function digitize_note(root) {
-    return root_notes.get(root);
+    return root_notes[root];
 };
 
 // map chord
@@ -70,10 +75,9 @@ function mapTones() {
     console.log(chordType)
     console.log(root)
     root = digitize_note(root);
-
     chordType == chordFunctions[chordType] ? chordFunctions[chordType] : undefined;
     let chord = chordFunctions[chordType](root)
-    
+    console.log(chord);
     drawChord(chord);
 };
 
