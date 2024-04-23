@@ -1,24 +1,35 @@
 let rootnote = document.getElementById("root-selection");
 let chordSelection = document.getElementById("chord-selection");
 let minor = document.getElementById("minor");
+let root;
+let chordType;
 
+
+// handle rootnote selection
 rootnote.addEventListener("click", (e) => {
     if (e.target.tagName == "INPUT" && root_notes.hasOwnProperty(e.target.id)) {
-        let root = e.target.id;
+        root = e.target.id;
+        if (chordType === "undefined") {
+            chordType = "major";
+        }
         alert(root);
+        mapTones();
     };
 });
 
+// handle chord type selection
 chordSelection.addEventListener("click", (e) => {
     if (e.target.tagName == "INPUT" && chordFunctions.hasOwnProperty(e.target.id)) {
-        let chordType = e.target.id;
+        chordType = e.target.id;
         alert(chordType);
+        mapTones();
     };
 });
 
 // # define an octave
 octave = 12;
-root = 0;
+// root = 0;
+// chordType = "major";
 
 // define list of notes
 let root_notes = {
@@ -36,11 +47,6 @@ let root_notes = {
     "B": 11,
 };
 
-// turn letters to numbers
-function digitize_note(root) {
-    return root_notes.get(root, 0);
-};
-
 // inverse list of notes 
 let reversed_root_notes = {};
 
@@ -49,24 +55,25 @@ for (let key in root_notes) {
     reversed_root_notes[value] = key;
 };
 
-// return numbers to letters
+// numbers to letters
 function letterize_digit(digit) {
    return reversed_root_notes[digit];
 };
 
-// wait for DOM to load
-window.onload = function() {
-    console.log("DOM loaded.");
-    // prompt user
-    const chordType = "major"
-    // prompt("Chord type?");
-    // check if chord exists 
+// letters to numbers
+function digitize_note(root) {
+    return root_notes.get(root);
+};
+
+// map chord
+function mapTones() {
+    console.log(chordType)
+    console.log(root)
+    root = digitize_note(root);
+
     chordType == chordFunctions[chordType] ? chordFunctions[chordType] : undefined;
-            // var chord = makeChord(root);
-            // console.log(chord)
-            // console.log(Array.isArray(chord))
-    // draw chord
     let chord = chordFunctions[chordType](root)
+    
     drawChord(chord);
 };
 
@@ -76,7 +83,10 @@ function drawChord(chord) {
         console.log(note);
         note = letterize_digit(note);
         console.log(note);
+
         let styled = document.getElementById(note);
+
+
         if (styled) {
             styled.style.fill = "green";
         } else {
