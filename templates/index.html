@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ToneMap</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/style.css">
     <script src="/static/main.js" defer></script>
 </head>
@@ -139,23 +140,23 @@
 
                 <div class="black-keys">
 
-                    <input type="radio" id="Csharp" name="rootnote">C#
-                    <input type="radio" id="Dsharp" name="rootnote">D#
-                    <input type="radio" id="Fsharp" name="rootnote">F#
-                    <input type="radio" id="Gsharp" name="rootnote">G#
-                    <input type="radio" id="Asharp" name="rootnote">A#
+                    <input type="button" id="Csharp" name="rootnote" value="C#">
+                    <input type="button" id="Dsharp" name="rootnote" value="D#">
+                    <input type="button" id="Fsharp" name="rootnote" value="F#">
+                    <input type="button" id="Gsharp" name="rootnote" value="G#">
+                    <input type="button" id="Asharp" name="rootnote" value="A#">
 
                 </div>
 
                 <div class="white-keys">
 
-                    <input type="radio" id="C" name="rootnote" checked>C
-                    <input type="radio" id="D" name="rootnote">D
-                    <input type="radio" id="E" name="rootnote">E
-                    <input type="radio" id="F" name="rootnote">F
-                    <input type="radio" id="G" name="rootnote">G
-                    <input type="radio" id="A" name="rootnote">A
-                    <input type="radio" id="B" name="rootnote">B
+                    <input type="button" id="C" name="rootnote" value="C">
+                    <input type="button" id="D" name="rootnote" value="D">
+                    <input type="button" id="E" name="rootnote" value="E">
+                    <input type="button" id="F" name="rootnote" value="F">
+                    <input type="button" id="G" name="rootnote" value="G">
+                    <input type="button" id="A" name="rootnote" value="A">
+                    <input type="button" id="B" name="rootnote" value="B">
 
                 </div>   
 
@@ -164,36 +165,36 @@
 
             <div id="chord-selection">
 
-                <input type="radio" id="major" name="chord" checked>Maj
-                <input type="radio" id="minor" name="chord">min
-                <input type="radio" id="dom7" name="chord">7
-                <input type="radio" id="min7" name="chord">min7
-                <input type="radio" id="maj7" name="chord">Maj7
-                <input type="radio" id="minMaj7" name="chord">minMaj7
-                <input type="radio" id="maj6" name="chord">Maj6
-                <input type="radio" id="min6" name="chord">min6
-                <input type="radio" id="sixthNinth" name="chord">6/9
-                <input type="radio" id="fifth" name="chord">5
-                <input type="radio" id="ninth" name="chord">9
-                <input type="radio" id="min9" name="chord">min9
-                <input type="radio" id="maj9" name="chord">Maj9
-                <input type="radio" id="eleventh" name="chord">11
-                <input type="radio" id="min11" name="chord">min11
-                <input type="radio" id="maj11" name="chord">Maj11
-                <input type="radio" id="thirteenth" name="chord">13
-                <input type="radio" id="min13" name="chord">min13
-                <input type="radio" id="maj13" name="chord">Maj13
-                <input type="radio" id="add9" name="chord">add9
-                <input type="radio" id="add2" name="chord">add2
-                <input type="radio" id="sevenMinusFive" name="chord">7-5
-                <input type="radio" id="sevenPlusFive" name="chord">7+5
-                <input type="radio" id="sus4" name="chord">sus4
-                <input type="radio" id="sus2" name="chord">sus2
-                <input type="radio" id="diminished" name="chord">diminished
-                <input type="radio" id="dim7" name="chord">dim7
-                <input type="radio" id="min7b5" name="chord">min7b5
-                <input type="radio" id="aug" name="chord">aug
-                <input type="radio" id="aug7" name="chord">aug7
+                <input type="button" id="major" name="chord" value="Maj">
+                <input type="button" id="minor" name="chord" value="min">
+                <input type="button" id="dom7" name="chord" value="7">
+                <input type="button" id="min7" name="chord" value="min7">
+                <input type="button" id="maj7" name="chord" value="Maj7">
+                <input type="button" id="minMaj7" name="chord" value="minMaj7">
+                <input type="button" id="maj6" name="chord" value="Maj6">
+                <input type="button" id="min6" name="chord" value="min6">
+                <input type="button" id="sixthNinth" name="chord" value="6/9">
+                <input type="button" id="fifth" name="chord" value="5">
+                <input type="button" id="ninth" name="chord" value="9">
+                <input type="button" id="min9" name="chord" value="min9">
+                <input type="button" id="maj9" name="chord" value="Maj9">
+                <input type="button" id="eleventh" name="chord" value="11">
+                <input type="button" id="min11" name="chord" value="min11">
+                <input type="button" id="maj11" name="chord" value="Maj11">
+                <input type="button" id="thirteenth" name="chord" value="13">
+                <input type="button" id="min13" name="chord" value="min13">
+                <input type="button" id="maj13" name="chord" value="Maj13">
+                <input type="button" id="add9" name="chord" value="add9">
+                <input type="button" id="add2" name="chord" value="add2">
+                <input type="button" id="sevenMinusFive" name="chord" value="7-5">
+                <input type="button" id="sevenPlusFive" name="chord" value="7+5">
+                <input type="button" id="sus4" name="chord" value="sus4">
+                <input type="button" id="sus2" name="chord" value="sus2">
+                <input type="button" id="diminished" name="chord" value="diminished">
+                <input type="button" id="dim7" name="chord" value="dim7">
+                <input type="button" id="min7b5" name="chord" value="min7b5">
+                <input type="button" id="aug" name="chord" value="aug">
+                <input type="button" id="aug7" name="chord" value="aug7">
 
             </div>
 
