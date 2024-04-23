@@ -1,0 +1,34 @@
+#controls {
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#root-selection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25rem;
+}
+
+#black-keys {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+#white-keys {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+#chord-selection {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 0.25rem;
+    padding: 0.25rem;
+}
