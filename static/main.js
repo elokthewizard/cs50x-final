@@ -50,26 +50,33 @@ function letterize_digit(digit) {
 // wait for DOM to load
 window.onload = function() {
     console.log("DOM loaded.");
-    // calculate intervals
-    var chord = makeChord(root);
-    console.log(chord)
-    console.log(Array.isArray(chord))
+    // prompt user
+    const chordType = "major"
+    // prompt("Chord type?");
+    // check if chord exists 
+    chordType == chordFunctions[chordType] ? chordFunctions[chordType] : undefined;
+            // var chord = makeChord(root);
+            // console.log(chord)
+            // console.log(Array.isArray(chord))
     // draw chord
-    drawChord(chord);
+    drawChord(chordFunctions[chordType](root));
 };
 
-// function makeChord(root) {
-//     if (chordType == "major") {
-//         const createMaj = (root) => {
-//             let third = root + 4;
-//             let fifth = root + 7;
-//             return [root, third, fifth];
-//         };
-//         return createMaj(root);
-//     };
-// };
+// draw chord
+function drawChord(chord) {
+    for (let note of chord) {
+        console.log(note);
+        note = letterize_digit(note);
+        console.log(note);
+        let styled = document.getElementById(note);
+        if (styled) {
+            styled.style.fill = "green";
+        } else {
+            console.log('No SVG element with ID', note);
+        }
+    };
+};
 
-// define chords
 
 // rewrite chord functions as object methods
 const chordFunctions = {
@@ -261,24 +268,21 @@ const chordFunctions = {
         let fifth = root + 8
         let seventh = root + 10
         return [root, third, fifth, seventh]
-    }
-} 
-
-const chord = chordFunctions[chordType] ? chordFunctions[chordType] : undefined;
-
-function drawChord(chord) {
-    for (let note of chord) {
-        console.log(note);
-        note = letterize_digit(note);
-        console.log(note);
-        let styled = document.getElementById(note);
-        if (styled) {
-            styled.style.fill = "green";
-        } else {
-            console.log('No SVG element with ID', note);
-        }
-    };
+    },
 };
 
 
+
+
 // request.form.get('rootnote', "C")
+
+// function makeChord(root) {
+//     if (chordType == "major") {
+//         const createMaj = (root) => {
+//             let third = root + 4;
+//             let fifth = root + 7;
+//             return [root, third, fifth];
+//         };
+//         return createMaj(root);
+//     };
+// };
