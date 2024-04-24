@@ -99,6 +99,7 @@ function resetChordGraphic() {
 // draw chord
 function drawChord(chord) {
     resetChordGraphic();
+    console.log(chordType);
     for (let note of chord) {
         console.log(note);
         note = note % 12;
