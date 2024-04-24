@@ -1,41 +1,12 @@
 const whiteKeys = document.querySelectorAll("svg-white-keys");
 const blackKeys = document.querySelectorAll("svg-black-keys");
 
-let rootnote = document.getElementById("root-selection");
-let chordSelection = document.getElementById("chord-selection");
+const controlPanel = document.getElementById("controls");
 
-let root ="";
+let root = "";
 let chordType = "";
-
-
-// handle rootnote selection
-rootnote.addEventListener("click", (e) => {
-    if (e.target.tagName == "INPUT" && root_notes.hasOwnProperty(e.target.id)) {
-        root = e.target.id;
-        if (chordType == "") {
-            chordType = "major";
-        }
-        // alert(root);
-        // alert(chordType);
-        mapTones();
-    };
-});
-
-// handle chord type selection
-chordSelection.addEventListener("click", (e) => {
-    if (e.target.tagName == "INPUT" && chordFunctions.hasOwnProperty(e.target.id)) {
-        chordType = e.target.id;
-        if (root == "") {
-            root = "C";
-        }
-        // alert(chordType);
-        // alert(root);
-        mapTones();
-    };
-});
-
 // # define an octave
-octave = 12;
+const octave = 12;
 
 // define list of notes
 let root_notes = {
@@ -71,13 +42,23 @@ function digitize_note(root) {
     return root_notes[root];
 };
 
-// map chord
-function mapTones() {
-    root = digitize_note(root);
-    chordType == chordFunctions[chordType] ? chordFunctions[chordType] : undefined;
-    let chord = chordFunctions[chordType](root)
-    drawChord(chord);
-};
+// handle rootnote selection
+controlPanel.addEventListener("click", (e) => {
+    if (e.target.tagName == "INPUT" && root_notes.hasOwnProperty(e.target.id)) {
+        root = e.target.id;
+        console.log("root:" + root)
+    }
+    // handle chord type selection
+    else if (e.target.tagName == "INPUT" && chordFunctions.hasOwnProperty(e.target.id)) {
+        chordType = e.target.id;
+        console.log("chordType:" + chordType)
+    };
+    if (isNaN(root)) {
+        root = digitize_note(root);
+        console.log("digitized root:" + root)
+    }
+    mapTones();
+});
 
 function resetChordGraphic() {
     const whiteKeys = document.querySelectorAll(".svg-white-keys");
@@ -94,6 +75,15 @@ function resetChordGraphic() {
             rect.style.fill = "black";
         });
     });
+};
+
+// map chord
+function mapTones() {
+    if (chordFunctions[chordType] == undefined) {
+        chordType = "major";
+    }
+    let chord = chordFunctions[chordType](root)
+    drawChord(chord);
 };
 
 // draw chord
@@ -179,133 +169,133 @@ const chordFunctions = {
         let fifth = root + 7;
         let seventh = root + 10;
         let ninth = root + octave + 2;
-        return [root, third, fifth, seventh, ninth]
+        return [root, third, fifth, seventh, ninth];
     },
     min9: function(root) {
-        let third = root + 3
-        let fifth = root + 7
-        let seventh = root + 10
-        let ninth = root + octave + 2
-        return [root, third, fifth, seventh, ninth]
+        let third = root + 3;
+        let fifth = root + 7;
+        let seventh = root + 10;
+        let ninth = root + octave + 2;
+        return [root, third, fifth, seventh, ninth];
     },
     maj9: function(root) {
-        let third = root + 4
-        let fifth = root + 7
-        let seventh = root + 11
-        let ninth = root + octave + 2
-        return [root, third, fifth, seventh, ninth]
+        let third = root + 4;
+        let fifth = root + 7;
+        let seventh = root + 11;
+        let ninth = root + octave + 2;
+        return [root, third, fifth, seventh, ninth];
     },
     eleventh: function(root) {
-        let third = root + 4
-        let fifth = root + 7
-        let seventh = root + 10
-        let ninth = root + octave + 2
-        let eleventh = root + octave + 5
-        return [root, third, fifth, seventh, ninth, eleventh]
+        let third = root + 4;
+        let fifth = root + 7;
+        let seventh = root + 10;
+        let ninth = root + octave + 2;
+        let eleventh = root + octave + 5;
+        return [root, third, fifth, seventh, ninth, eleventh];
     },
     min11: function(root) {
-        let third = root + 3
-        let fifth = root + 7
-        let seventh = root + 10
-        let ninth = root + octave + 2
-        let eleventh = root + octave + 5
-        return [root, third, fifth, seventh, ninth, eleventh]
+        let third = root + 3;
+        let fifth = root + 7;
+        let seventh = root + 10;
+        let ninth = root + octave + 2;
+        let eleventh = root + octave + 5;
+        return [root, third, fifth, seventh, ninth, eleventh];
     },
     maj11: function(root) {
-        let third = root + 4
-        let fifth = root + 7
-        let seventh = root + 11
-        let ninth = root + octave + 2
-        let eleventh = root + octave + 5
-        return [root, third, fifth, seventh, ninth, eleventh]
+        let third = root + 4;
+        let fifth = root + 7;
+        let seventh = root + 11;
+        let ninth = root + octave + 2;
+        let eleventh = root + octave + 5;
+        return [root, third, fifth, seventh, ninth, eleventh];
     },
     thirteenth: function(root) {
-        let third = root + 4
-        let fifth = root + 7
-        let seventh = root + 10
-        let ninth = root + octave + 2
-        let eleventh = root + octave + 5
-        let thirteenth = root + octave + 9
-        return [root, third, fifth, seventh, ninth, eleventh, thirteenth]
+        let third = root + 4;
+        let fifth = root + 7;
+        let seventh = root + 10;
+        let ninth = root + octave + 2;
+        let eleventh = root + octave + 5;
+        let thirteenth = root + octave + 9;
+        return [root, third, fifth, seventh, ninth, eleventh, thirteenth];
     },
     min13: function(root) {
-        let third = root + 3
-        let fifth = root + 7
-        let seventh = root + 10
-        let ninth = root + octave + 2
-        let eleventh = root + octave + 5
-        let thirteenth = root + octave + 9
-        return [root, third, fifth, seventh, ninth, eleventh, thirteenth]
+        let third = root + 3;
+        let fifth = root + 7;
+        let seventh = root + 10;
+        let ninth = root + octave + 2;
+        let eleventh = root + octave + 5;
+        let thirteenth = root + octave + 9;
+        return [root, third, fifth, seventh, ninth, eleventh, thirteenth];
     },
     maj13: function(root) {
-        let third = root + 4
-        let fifth = root + 7
-        let seventh = root + 11
-        let ninth = root + octave + 2
-        let thirteenth = root + octave + 9
-        return [root, third, fifth, seventh, ninth, eleventh, thirteenth]
+        let third = root + 4;
+        let fifth = root + 7;
+        let seventh = root + 11;
+        let ninth = root + octave + 2;
+        let thirteenth = root + octave + 9;
+        return [root, third, fifth, seventh, ninth, eleventh, thirteenth];
     },
     add9: function(root) {
-        let third = root + 4
-        let fifth = root + 7
-        let seventh = root + octave + 2
-        return [root, third, fifth, seventh]
+        let third = root + 4;
+        let fifth = root + 7;
+        let seventh = root + octave + 2;
+        return [root, third, fifth, seventh];
     },
     add2: function(root) {
-        let third = root + 2
-        let fifth = root + 4
-        let seventh = root + 7
-        return [root, third, fifth, seventh]
+        let third = root + 2;
+        let fifth = root + 4;
+        let seventh = root + 7;
+        return [root, third, fifth, seventh];
     },
     sevenMinusFive: function(root) {
-        let third = root + 4
-        let fifth = root + 6
-        let seventh = root + 10
-        return [root, third, fifth, seventh]
+        let third = root + 4;
+        let fifth = root + 6;
+        let seventh = root + 10;
+        return [root, third, fifth, seventh];
     },
     sevenPlusFive: function(root) {
-        let third = root + 4
-        let fifth = root + 8
-        let seventh = root + 10
-        return [root, third, fifth, seventh]
+        let third = root + 4;
+        let fifth = root + 8;
+        let seventh = root + 10;
+        return [root, third, fifth, seventh];
     },
     sus4: function(root) {
-        let third = root + 5
-        let fifth = root + 7      
-        return [root, third, fifth]
+        let third = root + 5;
+        let fifth = root + 7;
+        return [root, third, fifth];
     },
     sus2: function(root) {
-        let third = root + 2
-        let fifth = root + 7
-        return [root, third, fifth]
+        let third = root + 2;
+        let fifth = root + 7;
+        return [root, third, fifth];
     },
     diminished: function(root) {
-        let third = root + 3
-        let fifth = root + 6
-        return [root, third, fifth]
+        let third = root + 3;
+        let fifth = root + 6;
+        return [root, third, fifth];
     },
     dim7: function(root) {
-        let third = root + 3
-        let fifth = root + 6
-        let seventh = root + 9
-        return [root, third, fifth, seventh]
+        let third = root + 3;
+        let fifth = root + 6;
+        let seventh = root + 9;
+        return [root, third, fifth, seventh];
     },
     min7b5: function(root) {
-        let third = root + 3
-        let fifth = root + 6
-        let seventh = root + 10
-        return [root, third, fifth, seventh]
+        let third = root + 3;
+        let fifth = root + 6;
+        let seventh = root + 10;
+        return [root, third, fifth, seventh];
     },
     aug: function(root) {
         let third = root + 4;
         let fifth = root + 8;
-        return [root, third, fifth]
+        return [root, third, fifth];
     },
     aug7: function(root) {
-        let third = root + 4
-        let fifth = root + 8
-        let seventh = root + 10
-        return [root, third, fifth, seventh]
+        let third = root + 4;
+        let fifth = root + 8;
+        let seventh = root + 10;
+        return [root, third, fifth, seventh];
     },
 };
 
