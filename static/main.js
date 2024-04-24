@@ -1,6 +1,9 @@
+const whiteKeys = document.querySelectorAll("svg-white-keys");
+const blackKeys = document.querySelectorAll("svg-black-keys");
+
 let rootnote = document.getElementById("root-selection");
 let chordSelection = document.getElementById("chord-selection");
-let minor = document.getElementById("minor");
+
 let root ="";
 let chordType = "";
 
@@ -33,8 +36,6 @@ chordSelection.addEventListener("click", (e) => {
 
 // # define an octave
 octave = 12;
-// root = 0;
-// chordType = "major";
 
 // define list of notes
 let root_notes = {
@@ -79,6 +80,23 @@ function mapTones() {
     let chord = chordFunctions[chordType](root)
     console.log(chord);
     drawChord(chord);
+};
+
+function resetChordGraphic() {
+    const whiteKeys = document.querySelectorAll(".svg-white-keys");
+    const blackKeys = document.querySelectorAll(".svg-black-keys");
+    whiteKeys.forEach(function(key) {
+        const wholeNotes = key.querySelectorAll("*");
+        wholeNotes.forEach(function(rect) {
+            rect.style.fill = "white";
+        });
+    });
+    blackKeys.forEach(function(key) {
+        const inharmonicNotes = key.querySelectorAll("*");
+        inharmonicNotes.forEach(function(rect) {
+            rect.style.fill = "black";
+        });
+    });
 };
 
 // draw chord
