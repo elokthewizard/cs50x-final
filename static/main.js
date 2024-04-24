@@ -73,12 +73,9 @@ function digitize_note(root) {
 
 // map chord
 function mapTones() {
-    console.log(chordType)
-    console.log(root)
     root = digitize_note(root);
     chordType == chordFunctions[chordType] ? chordFunctions[chordType] : undefined;
     let chord = chordFunctions[chordType](root)
-    console.log(chord);
     drawChord(chord);
 };
 
@@ -101,14 +98,14 @@ function resetChordGraphic() {
 
 // draw chord
 function drawChord(chord) {
+    resetChordGraphic();
     for (let note of chord) {
         console.log(note);
+        note = note % 12;
         note = letterize_digit(note);
         console.log(note);
 
         let styled = document.getElementById(note);
-
-
         if (styled) {
             styled.style.fill = "green";
         } else {
