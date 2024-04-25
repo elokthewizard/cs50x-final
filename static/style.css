@@ -1,3 +1,7 @@
+body {
+    background-color: #848FA5;
+}
+
 #controls {
     border: solid;
     display: flex;
@@ -7,9 +11,25 @@
 }
 
 .graphic {
-    border: solid green;
+    padding: 0.5rem;
     display: flex;
     justify-content: center;
+}
+
+.svg-white-keys * {
+    fill: #E5DCC5;
+}
+
+.svg-black-keys * {
+    fill: #4C4C47;
+}
+
+.svg-white-keys *:hover {
+    filter: brightness(50%);
+}
+
+.svg-black-keys *:hover {
+    filter: brightness(150%);
 }
 
 #root-selection {
