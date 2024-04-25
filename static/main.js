@@ -85,13 +85,13 @@ function resetChordGraphic() {
     whiteKeys.forEach(function(key) {
         const wholeNotes = key.querySelectorAll("*");
         wholeNotes.forEach(function(rect) {
-            rect.style.fill = "white";
+            rect.style.fill = "#E5DCC5";
         });
     });
     blackKeys.forEach(function(key) {
         const inharmonicNotes = key.querySelectorAll("*");
         inharmonicNotes.forEach(function(rect) {
-            rect.style.fill = "black";
+            rect.style.fill = "#4C4C47";
         });
     });
 };
@@ -117,7 +117,7 @@ function drawChord(chord) {
 
         let styled = document.getElementById(note);
         if (styled) {
-            styled.style.fill = "green";
+            styled.style.filter = "green";
         } else {
             console.log('No SVG element with ID', note);
         }

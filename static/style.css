@@ -72,20 +72,14 @@ body {
     }
 }
 
-.svg-white-keys * {
-    fill: #E5DCC5;
-}
-
-.svg-black-keys * {
-    fill: #4C4C47;
-}
-
 .svg-white-keys *:hover {
     filter: brightness(50%);
+    transform: translateY(4px);
 }
 
 .svg-black-keys *:hover {
     filter: brightness(150%);
+    transform: translateY(4px);
 }
 
 /* legacy code, included just in case */
