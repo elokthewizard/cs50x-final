@@ -13,7 +13,7 @@ body {
 }
 
 .graphic {
-    padding: 0.5rem;
+    padding: 2.1rem 0;
     display: flex;
     justify-content: center;
 }
@@ -65,6 +65,11 @@ body {
     .header-right {
         float: none;
     }
+    .graphic {
+        padding: 0.25rem 0;
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .svg-white-keys * {
@@ -104,7 +109,6 @@ body {
 }
 
 #chord-selection {
-    border: solid red;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(6, 1fr);
@@ -112,4 +116,7 @@ body {
     padding: 0.25rem;
     justify-content: center;
     align-items: center;
+    margin: auto;
+    position: relative;
+    top: 0; left: 0; bottom: 0; right: 0;
 }
