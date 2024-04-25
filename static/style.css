@@ -6,6 +6,12 @@
     align-items: center;
 }
 
+.graphic {
+    border: solid green;
+    display: flex;
+    justify-content: center;
+}
+
 #root-selection {
     width: 100%;
     display: flex;
