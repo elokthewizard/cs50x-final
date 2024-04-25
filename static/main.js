@@ -2,6 +2,7 @@ const whiteKeys = document.querySelectorAll("svg-white-keys");
 const blackKeys = document.querySelectorAll("svg-black-keys");
 
 const controlPanel = document.getElementById("controls");
+const graphics = document.querySelector(".graphic");
 
 let root = "";
 let chordType = "";
@@ -43,6 +44,24 @@ function digitize_note(root) {
 };
 
 // handle rootnote selection
+
+graphics.addEventListener("click", (e) => {
+    if (root_notes.hasOwnProperty(e.target.id)) {
+        root = e.target.id;
+        console.log("root:" + root)
+    }
+    // handle chord type selection
+    else if (chordFunctions.hasOwnProperty(e.target.id)) {
+        chordType = e.target.id;
+        console.log("chordType:" + chordType)
+    };
+    if (isNaN(root)) {
+        root = digitize_note(root);
+        console.log("digitized root:" + root)
+    }
+    mapTones();
+});
+
 controlPanel.addEventListener("click", (e) => {
     if (e.target.tagName == "INPUT" && root_notes.hasOwnProperty(e.target.id)) {
         root = e.target.id;
