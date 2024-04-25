@@ -15,7 +15,8 @@ body {
     display: flex;
     justify-content: center;
 }
-/* shoutout w3schools for the css */
+
+/* shoutout w3schools for the header css */
 .header {
     overflow: hidden;
     background-color: #F1F1F1;
@@ -79,16 +80,8 @@ body {
     filter: brightness(150%);
 }
 
-#root-selection {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0.25rem;
-}
-
-#black-keys {
+/* legacy code, included just in case */
+/* #black-keys {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
 }
@@ -96,6 +89,15 @@ body {
 #white-keys {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+} */
+
+#root-selection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25rem;
 }
 
 #chord-selection {
