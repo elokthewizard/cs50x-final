@@ -1,5 +1,5 @@
 import os
-from flask import Flask, redirect, request, render_template, send_file
+from flask import Flask, redirect, request, render_template
 app = Flask(__name__)
 
 # setup flask to run

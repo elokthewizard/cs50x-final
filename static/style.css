@@ -58,7 +58,7 @@ body {
 
 #footer {
     display: flex;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     height: 2.5rem;  /* Footer height */
@@ -88,21 +88,23 @@ body {
     }
     .svg-white-keys *:hover {
         filter: brightness(150%);
-        transform: translateY(4px);
+        transform: translateY(-4px);
     }
     
     .svg-black-keys *:hover {
         filter: brightness(150%);
-        transform: translateY(4px);
+        transform: translateY(-4px);
     }
 }
 
 .svg-white-keys *:hover {
-    transform: translateY(12px);
+    transform: translateY(-12px);
+    overflow: visible;
 }
 
 .svg-black-keys *:hover {
-    transform: translateY(12px);
+    transform: translateY(-12px);
+    overflow: visible;
 }
 
 /* legacy code, included just in case */
