@@ -86,16 +86,23 @@ body {
         display: flex;
         justify-content: center;
     }
+    .svg-white-keys *:hover {
+        filter: brightness(150%);
+        transform: translateY(4px);
+    }
+    
+    .svg-black-keys *:hover {
+        filter: brightness(150%);
+        transform: translateY(4px);
+    }
 }
 
 .svg-white-keys *:hover {
-    filter: brightness(150%);
-    transform: translateY(4px);
+    transform: translateY(12px);
 }
 
 .svg-black-keys *:hover {
-    filter: brightness(150%);
-    transform: translateY(4px);
+    transform: translateY(12px);
 }
 
 /* legacy code, included just in case */
