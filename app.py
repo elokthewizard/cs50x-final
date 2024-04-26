@@ -13,7 +13,7 @@ if __name__ == '__main__':
 def success(name):
 	return 'welcome %s' % name
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['POST', 'GET'])
 def index():
 	if request.method == "POST":
 		print('woah')
@@ -30,3 +30,7 @@ def login():
 		return redirect(url_for('success', name=user))
 	
 
+@app.route('/about', methods=['GET'])
+def about():
+	if request.method == "GET":
+		return render_template('about.html')

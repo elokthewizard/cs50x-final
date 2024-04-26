@@ -56,6 +56,22 @@ body {
     float: right;
 }
 
+#footer {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;  /* Footer height */
+    color: #F1F1F1;
+    background-color: #4C4C47;
+    font-weight: 800;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* make responsive!: */
+
 @media screen and (max-width: 500px) {
     .header a {
         float: none;
@@ -70,14 +86,6 @@ body {
         display: flex;
         justify-content: center;
     }
-}
-
-.svg-white-keys * {
-    fill: #E5DCC5;
-}
-
-.svg-black-keys * {
-    fill: #4C4C47;
 }
 
 .svg-white-keys *:hover {
