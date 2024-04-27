@@ -85,13 +85,17 @@ function resetChordGraphic() {
     whiteKeys.forEach(function(key) {
         const wholeNotes = key.querySelectorAll("*");
         wholeNotes.forEach(function(rect) {
-            rect.style.fill = "white";
+            rect.style.transform = "translateY(0)";
+            rect.style.filter = "brightness(100%)";
+            rect.style.fill = "#F9F9F9";
         });
     });
     blackKeys.forEach(function(key) {
         const inharmonicNotes = key.querySelectorAll("*");
         inharmonicNotes.forEach(function(rect) {
-            rect.style.fill = "black";
+            rect.style.transform = "translateY(0)";
+            rect.style.filter = "brightness(100%)";
+            rect.style.fill = "#2D2D2A";
         });
     });
 };
@@ -117,7 +121,21 @@ function drawChord(chord) {
 
         let styled = document.getElementById(note);
         if (styled) {
-            styled.style.fill = "green";
+            
+            let noteGroup = styled.parentNode.className.baseVal;
+            if (noteGroup == "svg-black-keys") {
+                styled.style.filter = "brightness(150%)";
+            }
+            else if (noteGroup == "svg-white-keys") {
+                styled.style.filter = "brightness(75%)";
+            }
+            if (window.innerWidth < 500) {
+                // Apply transform for smaller screens
+                styled.style.transform = "translateY(-4px)";
+            } else {
+                // Apply transform for larger screens
+                styled.style.transform = "translateY(-12px)";
+            }
         } else {
             console.log('No SVG element with ID', note);
         }
