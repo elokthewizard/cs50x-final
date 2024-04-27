@@ -124,7 +124,7 @@ function drawChord(chord) {
             
             let noteGroup = styled.parentNode.className.baseVal;
             if (noteGroup == "svg-black-keys") {
-                styled.style.filter = "brightness(150%)";
+                styled.style.filter = "brightness(175%)";
             }
             else if (noteGroup == "svg-white-keys") {
                 styled.style.filter = "brightness(75%)";
@@ -137,7 +137,7 @@ function drawChord(chord) {
                 styled.style.transform = "translateY(-12px)";
             }
         } else {
-            console.log('No SVG element with ID', note);
+            error.log('No SVG element with ID', note);
         }
     };
 };
