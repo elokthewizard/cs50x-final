@@ -50,7 +50,6 @@ function digitize_note(root) {
 };
 
 // handle rootnote selection
-
 graphics.addEventListener("click", (e) => {
     if (root_notes.hasOwnProperty(e.target.id)) {
         root = e.target.id;
@@ -69,6 +68,9 @@ graphics.addEventListener("click", (e) => {
 });
 
 controlPanel.addEventListener("click", (e) => {
+    if (!root || root == "") {
+        root = 0;
+    }
     if (e.target.tagName == "INPUT" && root_notes.hasOwnProperty(e.target.id)) {
         root = e.target.id;
         console.log("root:" + root)
@@ -91,6 +93,7 @@ function resetChordGraphic() {
 
     document.getElementById("chord-symbol").innerText = "-";
     chordName.innerText = "-";
+
     whiteKeys.forEach(function(key) {
         const wholeNotes = key.querySelectorAll("*");
         wholeNotes.forEach(function(rect) {
@@ -147,8 +150,8 @@ function drawChord(chord) {
             }
 
             // draw chord name and formula 
-            document.getElementById("chord-symbol").innerText = root;
-            chordName.innerText = chordType;
+            document.getElementById("chord-symbol").innerText = note;
+            chordName.innerText = `Chord shape: ${chordType} Formula: ${chord}`;
 
         } else {
             error.log('No SVG element with ID', note);
