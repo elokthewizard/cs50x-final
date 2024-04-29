@@ -24,10 +24,10 @@ def index():
 def login():
 	if request.method == "POST":
 		user = request.form['nm']
-		return redirect(url_for('success', name=user))
+		return redirect('success', name=user)
 	else:
 		user = request.form['nm']
-		return redirect(url_for('success', name=user))
+		return redirect('success', name=user)
 	
 
 @app.route('/about', methods=['GET'])
