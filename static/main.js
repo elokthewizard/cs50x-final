@@ -4,6 +4,12 @@ const blackKeys = document.querySelectorAll("svg-black-keys");
 const controlPanel = document.getElementById("controls");
 const graphics = document.querySelector(".graphic");
 
+const chordName = document.getElementById("chord-name");
+
+document.addEventListener("DOMContentLoaded", () =>{
+    resetChordGraphic();
+})
+
 let root = "";
 let chordType = "";
 // # define an octave
@@ -82,6 +88,9 @@ controlPanel.addEventListener("click", (e) => {
 function resetChordGraphic() {
     const whiteKeys = document.querySelectorAll(".svg-white-keys");
     const blackKeys = document.querySelectorAll(".svg-black-keys");
+
+    document.getElementById("chord-symbol").innerText = "-";
+    chordName.innerText = "-";
     whiteKeys.forEach(function(key) {
         const wholeNotes = key.querySelectorAll("*");
         wholeNotes.forEach(function(rect) {
@@ -102,7 +111,7 @@ function resetChordGraphic() {
 
 // map chord
 function mapTones() {
-    if (chordFunctions[chordType] == undefined) {
+    if (!chordFunctions[chordType] || chordFunctions[chordType] == "" || chordFunctions[chordType] == undefined) {
         chordType = "major";
     }
     let chord = chordFunctions[chordType](root)
@@ -136,6 +145,11 @@ function drawChord(chord) {
                 // Apply transform for larger screens
                 styled.style.transform = "translateY(-12px)";
             }
+
+            // draw chord name and formula 
+            document.getElementById("chord-symbol").innerText = root;
+            chordName.innerText = chordType;
+
         } else {
             error.log('No SVG element with ID', note);
         }
