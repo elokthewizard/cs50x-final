@@ -4,7 +4,7 @@ const blackKeys = document.querySelectorAll("svg-black-keys");
 const controlPanel = document.getElementById("controls");
 const graphics = document.querySelector(".graphic");
 
-const chordName = document.getElementById("chord-name");
+const formula = document.getElementById("formula");
 
 document.addEventListener("DOMContentLoaded", () =>{
     resetChordGraphic();
@@ -92,7 +92,7 @@ function resetChordGraphic() {
     const blackKeys = document.querySelectorAll(".svg-black-keys");
 
     document.getElementById("chord-symbol").innerText = "Root: -";
-    chordName.innerText = "Chord shape: [-] Formula (-)";
+    formula.innerText = "Formula: (-)";
 
     whiteKeys.forEach(function(key) {
         const wholeNotes = key.querySelectorAll("*");
@@ -151,7 +151,7 @@ function drawChord(chord) {
 
             // draw chord name and formula 
             document.getElementById("chord-symbol").innerText = `Root: ${note}`;
-            chordName.innerText = `Chord shape: [${chordType}] Formula: (${chord})`;
+            formula.innerText = `Formula: (${chord})`;
 
         } else {
             error.log('No SVG element with ID', note);

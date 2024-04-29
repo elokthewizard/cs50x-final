@@ -15,9 +15,20 @@ body {
 }
 
 .graphic {
-    padding: 2rem 0;
+    padding: 0 0.5rem;
     display: flex;
     justify-content: center;
+}
+
+#information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+    margin: auto 0;
+    gap: 14rem;
 }
 
 /* shoutout w3schools for the header css */
@@ -61,7 +72,7 @@ body {
 
 #footer {
     display: flex;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     height: 2.25rem;  /* Footer height */
@@ -75,20 +86,16 @@ body {
 
 main {
     background-color: #F1F1F1;
-    padding: 0.5rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
+    padding: 0 2rem;
     width: 75%;
     height: 85%;
 }
 
-svg {
-    overflow: visible;
-}
-
-  /* make responsive!: */
+/* make responsive!: */
 
 @media screen and (max-width: 500px) {
     .header a {
@@ -100,15 +107,18 @@ svg {
         float: none;
     }
     .graphic {
-        padding: 0.25rem 0;
+        padding: 0 0.25rem;
         display: flex;
         justify-content: center;
+    }
+    main {
+        width: 100%;
+        padding: 0 1rem;
     }
     .svg-white-keys *:hover {
         filter: brightness(150%);
         transform: translateY(-4px);
     }
-    
     .svg-black-keys *:hover {
         filter: brightness(150%);
         transform: translateY(-4px);
@@ -151,7 +161,11 @@ svg {
     padding: 0.25rem;
     justify-content: center;
     align-items: center;
-    margin: auto;
-    position: relative;
-    top: 0; left: 0; bottom: 0; right: 0;
+    margin: auto 0;
+}
+
+#chord-selection input {
+    width: 100%;
+    height: 100%;
+    font-size:x-small;
 }
