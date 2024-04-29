@@ -91,8 +91,8 @@ function resetChordGraphic() {
     const whiteKeys = document.querySelectorAll(".svg-white-keys");
     const blackKeys = document.querySelectorAll(".svg-black-keys");
 
-    document.getElementById("chord-symbol").innerText = "-";
-    chordName.innerText = "-";
+    document.getElementById("chord-symbol").innerText = "Root: -";
+    chordName.innerText = "Chord shape: [-] Formula (-)";
 
     whiteKeys.forEach(function(key) {
         const wholeNotes = key.querySelectorAll("*");
@@ -150,8 +150,8 @@ function drawChord(chord) {
             }
 
             // draw chord name and formula 
-            document.getElementById("chord-symbol").innerText = note;
-            chordName.innerText = `Chord shape: ${chordType} Formula: ${chord}`;
+            document.getElementById("chord-symbol").innerText = `Root: ${note}`;
+            chordName.innerText = `Chord shape: [${chordType}] Formula: (${chord})`;
 
         } else {
             error.log('No SVG element with ID', note);
@@ -285,9 +285,9 @@ const chordFunctions = {
         let third = root + 4;
         let fifth = root + 7;
         let seventh = root + 11;
-        let ninth = root + octave + 2;
+        let eleventh = root + octave + 2;
         let thirteenth = root + octave + 9;
-        return [root, third, fifth, seventh, ninth, eleventh, thirteenth];
+        return [root, third, fifth, seventh, eleventh, thirteenth];
     },
     add9: function(root) {
         let third = root + 4;
