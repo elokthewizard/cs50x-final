@@ -138,11 +138,11 @@ function drawChord(chord) {
         // keep notes within 2 octaves 
         if (note > 23) {
             note = note % 12;
-            currentOctave = "octave_1";
+            currentOctave = "octave_2";
         }
         else if (note > 11) {
             note = note % 12;
-            currentOctave = "octave_2";
+            currentOctave = "octave_1";
         }
         
         note = letterize_digit(note);
