@@ -1,17 +1,28 @@
-const whiteKeys = document.querySelectorAll("svg-white-keys");
-const blackKeys = document.querySelectorAll("svg-black-keys");
+const whiteKeys = document.querySelectorAll(".svg-white-keys");
+const blackKeys = document.querySelectorAll(".svg-black-keys");
 
 const controlPanel = document.getElementById("controls");
 const graphics = document.querySelector(".graphic");
 
 const formula = document.getElementById("formula");
+const invertButton = document.getElementById("invert-btn");
+
+let chord;
 
 document.addEventListener("DOMContentLoaded", () =>{
     resetChordGraphic();
+    if (!chordFunctions[chordType] || chordFunctions[chordType] === "undefined") {
+        chordType = "major";
+    }
+    if (!root || root === "undefined") {
+        root = 0;
+    }
+    chord = chordFunctions[chordType](root);
 })
 
 let root = "";
 let chordType = "";
+let invertedNote = "";
 
 // # define an octave
 const octave = 12;
@@ -50,11 +61,29 @@ function digitize_note(root) {
     return root_notes[root];
 };
 
+// handle inversions
+function invertChord() {
+    invertedNote = "";
+    
+    invertedNote = chord.shift() + 12;
+    if (invertedNote > 23) {
+        invertedNote = invertedNote % 12;
+    }
+    chord.push(invertedNote);
+    alert(chord)
+    drawChord(chord);
+}
+
+invertButton.addEventListener("click", invertChord)
+
 // handle rootnote selection
-graphics.addEventListener("click", (e) => {
+graphics.addEventListener("click", handleKeys);
+
+function handleKeys(e) {
     let classes = e.target.classList;
     console.log(classes)
     for (let i=0; i < classes.length; i++) {
+        // check if id matches a note or enharmonic
         if (/^[a-zA-Z]$/.test(classes[i]) || /^[a-zA-Z]sharp$/.test(classes[i])) {
             root = classes[i];
             console.log("root:" + root)
@@ -73,32 +102,31 @@ graphics.addEventListener("click", (e) => {
         console.log("digitized root:" + root)
     }
     mapTones();
-});
+}
 
-controlPanel.addEventListener("click", (e) => {
-    if (!root || root == "") {
+controlPanel.addEventListener("click", controlApp);
+
+function controlApp(e) {
+    if (!root || root === "undefined") {
         root = 0;
     }
-    if (e.target.tagName == "INPUT" && root_notes.hasOwnProperty(e.target.id)) {
-        root = e.target.id;
-        console.log("root:" + root)
-    }
     // handle chord type selection
-    else if (e.target.tagName == "INPUT" && chordFunctions.hasOwnProperty(e.target.id)) {
+    if (e.target.id == "invert-btn") {
+        alert('YO')
+    }
+    if (chordFunctions.hasOwnProperty(e.target.id)) {
         chordType = e.target.id;
         console.log("chordType:" + chordType)
     };
     if (isNaN(root)) {
         root = digitize_note(root);
         console.log("digitized root:" + root)
-    }
+    };
     mapTones();
-});
+}
 
 function resetChordGraphic() {
-    const whiteKeys = document.querySelectorAll(".svg-white-keys");
-    const blackKeys = document.querySelectorAll(".svg-black-keys");
-
+    
     document.getElementById("chord-symbol").innerText = "Root: -";
     formula.innerText = "Formula: (-)";
 
@@ -142,38 +170,38 @@ function drawChord(chord) {
         }
         else if (note > 11) {
             note = note % 12;
-            currentOctave = "octave_1";
+            currentOctave = "octave_2";
         }
         
         note = letterize_digit(note);
         console.log(note);
         let styled = document.querySelector(`.${currentOctave}.${note}`);
 
-
-        
         if (styled) {
-            
             let noteGroup = styled.parentNode.className.baseVal;
             if (noteGroup == "svg-black-keys") {
-                styled.style.filter = "brightness(175%)";
+                styled.style.fill = "dodgerblue";
             }
             else if (noteGroup == "svg-white-keys") {
-                styled.style.filter = "brightness(75%)";
-            }
+                styled.style.fill = "dodgerblue";
+            };
+            // Apply transform for smaller screens
             if (window.innerWidth < 500) {
-                // Apply transform for smaller screens
                 styled.style.transform = "translateY(-4px)";
+            // Apply transform for larger screens
             } else {
-                // Apply transform for larger screens
                 styled.style.transform = "translateY(-12px)";
-            }
+            };
+
 
         } else {
             error.log('No SVG element with ID', note);
-        }
+        };
+
         // draw chord name and formula 
         document.getElementById("chord-symbol").innerText = `Root: ${letterize_digit(root)}`;
         formula.innerText = `Formula: (${chord})`;
+
     };
 };
 
