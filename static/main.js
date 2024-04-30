@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
 let root = "";
 let chordType = "";
-let currentOctave = "octave_1"
+
 // # define an octave
 const octave = 12;
 
@@ -52,10 +52,10 @@ function digitize_note(root) {
 
 // handle rootnote selection
 graphics.addEventListener("click", (e) => {
-    classes = e.target.classList;
+    let classes = e.target.classList;
     console.log(classes)
     for (let i=0; i < classes.length; i++) {
-        if (/^[a-zA-Z]$/.test(classes[i])) {
+        if (/^[a-zA-Z]$/.test(classes[i]) || /^[a-zA-Z]sharp$/.test(classes[i])) {
             root = classes[i];
             console.log("root:" + root)
         }
@@ -138,12 +138,13 @@ function drawChord(chord) {
         // keep notes within 2 octaves 
         if (note > 23) {
             note = note % 12;
-            currentOctave = "octave_2";
+            currentOctave = "octave_1";
         }
-        if (note > 11) {
+        else if (note > 11) {
             note = note % 12;
             currentOctave = "octave_2";
         }
+        
         note = letterize_digit(note);
         console.log(note);
         let styled = document.querySelector(`.${currentOctave}.${note}`);
@@ -167,13 +168,12 @@ function drawChord(chord) {
                 styled.style.transform = "translateY(-12px)";
             }
 
-            // draw chord name and formula 
-            document.getElementById("chord-symbol").innerText = `Root: ${note}`;
-            formula.innerText = `Formula: (${chord})`;
-
         } else {
             error.log('No SVG element with ID', note);
         }
+        // draw chord name and formula 
+        document.getElementById("chord-symbol").innerText = `Root: ${letterize_digit(root)}`;
+        formula.innerText = `Formula: (${chord})`;
     };
 };
 
