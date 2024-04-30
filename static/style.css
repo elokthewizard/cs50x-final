@@ -169,3 +169,8 @@ main {
     height: 100%;
     font-size:x-small;
 }
+
+rect:hover {
+    cursor: pointer;
+    transform: translateY(-12px);
+}

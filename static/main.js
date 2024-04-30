@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
 let root = "";
 let chordType = "";
+let currentOctave = "octave_1"
 // # define an octave
 const octave = 12;
 
@@ -51,12 +52,19 @@ function digitize_note(root) {
 
 // handle rootnote selection
 graphics.addEventListener("click", (e) => {
-    if (root_notes.hasOwnProperty(e.target.id)) {
-        root = e.target.id;
-        console.log("root:" + root)
+    classes = e.target.classList;
+    console.log(classes)
+    for (let i=0; i < classes.length; i++) {
+        if (/^[a-zA-Z]$/.test(classes[i])) {
+            root = classes[i];
+            console.log("root:" + root)
+        }
+        else {
+            currentOctave = classes[i];
+        }
     }
     // handle chord type selection
-    else if (chordFunctions.hasOwnProperty(e.target.id)) {
+    if (chordFunctions.hasOwnProperty(e.target.id)) {
         chordType = e.target.id;
         console.log("chordType:" + chordType)
     };
@@ -127,11 +135,21 @@ function drawChord(chord) {
     console.log(chordType);
     for (let note of chord) {
         console.log(note);
-        note = note % 12;
+        // keep notes within 2 octaves 
+        if (note > 23) {
+            note = note % 12;
+            currentOctave = "octave_2";
+        }
+        if (note > 11) {
+            note = note % 12;
+            currentOctave = "octave_2";
+        }
         note = letterize_digit(note);
         console.log(note);
+        let styled = document.querySelector(`.${currentOctave}.${note}`);
 
-        let styled = document.getElementById(note);
+
+        
         if (styled) {
             
             let noteGroup = styled.parentNode.className.baseVal;
