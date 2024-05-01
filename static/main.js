@@ -151,13 +151,13 @@ function drawChord(chord) {
         }
         // keep notes within 2 octaves 
         if (note > 23) {
-            note = note % 12;
-            currentOctave = "octave_1";
+            note = note % 24;
         }
-        else if (note > 11) {
+        if (note > 11) {
             note = note % 12;
             currentOctave = "octave_2";
-        } else if (note < 11) {
+        } else {
+            note = note % 12;
             currentOctave = "octave_1";
         }
         
