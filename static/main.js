@@ -11,8 +11,9 @@ let chord = "";
 let currentOctave = "";
 
 document.addEventListener("DOMContentLoaded", () =>{
-    resetChordGraphic();
     mapTones();
+    resetChordGraphic();
+    // mapTones();
 })
 
 let root = "";
@@ -133,7 +134,7 @@ invertButton.addEventListener("click", invertChord)
 // handle inversions
 function invertChord() {
     invertedNote = "";
-    console.log("inverting: " + invertedNote)
+    console.log("inverting: " + chord[0])
     invertedNote = chord.shift() + 12;
     console.log("inverted: " + invertedNote)
     chord.push(invertedNote);
