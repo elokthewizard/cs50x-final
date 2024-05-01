@@ -7,17 +7,12 @@ const graphics = document.querySelector(".graphic");
 const formula = document.getElementById("formula");
 const invertButton = document.getElementById("invert-btn");
 
-let chord;
+let chord = "";
+let currentOctave = "";
 
 document.addEventListener("DOMContentLoaded", () =>{
     resetChordGraphic();
-    if (!chordFunctions[chordType] || chordFunctions[chordType] === "undefined") {
-        chordType = "major";
-    }
-    if (!root || root === "undefined") {
-        root = 0;
-    }
-    chord = chordFunctions[chordType](root);
+    mapTones();
 })
 
 let root = "";
@@ -61,21 +56,6 @@ function digitize_note(root) {
     return root_notes[root];
 };
 
-// handle inversions
-function invertChord() {
-    invertedNote = "";
-    
-    invertedNote = chord.shift() + 12;
-    if (invertedNote > 23) {
-        invertedNote = invertedNote % 12;
-    }
-    chord.push(invertedNote);
-    alert(chord)
-    drawChord(chord);
-}
-
-invertButton.addEventListener("click", invertChord)
-
 // handle rootnote selection
 graphics.addEventListener("click", handleKeys);
 
@@ -92,43 +72,22 @@ function handleKeys(e) {
             currentOctave = classes[i];
         }
     }
-    // handle chord type selection
-    if (chordFunctions.hasOwnProperty(e.target.id)) {
-        chordType = e.target.id;
-        console.log("chordType:" + chordType)
-    };
-    if (isNaN(root)) {
-        root = digitize_note(root);
-        console.log("digitized root:" + root)
-    }
     mapTones();
 }
 
 controlPanel.addEventListener("click", controlApp);
 
 function controlApp(e) {
-    if (!root || root === "undefined") {
-        root = 0;
-    }
-    // handle chord type selection
-    if (e.target.id == "invert-btn") {
-        alert('YO')
-    }
+
     if (chordFunctions.hasOwnProperty(e.target.id)) {
         chordType = e.target.id;
         console.log("chordType:" + chordType)
     };
-    if (isNaN(root)) {
-        root = digitize_note(root);
-        console.log("digitized root:" + root)
-    };
+
     mapTones();
 }
 
 function resetChordGraphic() {
-    
-    document.getElementById("chord-symbol").innerText = "Root: -";
-    formula.innerText = "Formula: (-)";
 
     whiteKeys.forEach(function(key) {
         const wholeNotes = key.querySelectorAll("*");
@@ -138,6 +97,7 @@ function resetChordGraphic() {
             rect.style.fill = "#F9F9F9";
         });
     });
+
     blackKeys.forEach(function(key) {
         const inharmonicNotes = key.querySelectorAll("*");
         inharmonicNotes.forEach(function(rect) {
@@ -146,16 +106,39 @@ function resetChordGraphic() {
             rect.style.fill = "#2D2D2A";
         });
     });
+
+    document.getElementById("chord-symbol").innerText = "Root: -";
+    formula.innerText = "Formula: (-)";
 };
 
 // map chord
 function mapTones() {
-    if (!chordFunctions[chordType] || chordFunctions[chordType] == "" || chordFunctions[chordType] == undefined) {
+    if (!root) {
+        root = 0;
+    }
+    if (isNaN(root)) {
+        root = digitize_note(root);
+        console.log("digitized root:" + root)
+    }
+    if (!chordFunctions[chordType]) {
         chordType = "major";
     }
-    let chord = chordFunctions[chordType](root)
+    chord = chordFunctions[chordType](root)
+    console.log("mapped: " + chord)
     drawChord(chord);
 };
+
+invertButton.addEventListener("click", invertChord)
+
+// handle inversions
+function invertChord() {
+    invertedNote = "";
+    console.log("inverting: " + invertedNote)
+    invertedNote = chord.shift() + 12;
+    console.log("inverted: " + invertedNote)
+    chord.push(invertedNote);
+    drawChord(chord);
+}
 
 // draw chord
 function drawChord(chord) {
@@ -163,14 +146,19 @@ function drawChord(chord) {
     console.log(chordType);
     for (let note of chord) {
         console.log(note);
+        if (!currentOctave) {
+            currentOctave = "octave_1";
+        }
         // keep notes within 2 octaves 
         if (note > 23) {
             note = note % 12;
-            currentOctave = "octave_2";
+            currentOctave = "octave_1";
         }
         else if (note > 11) {
             note = note % 12;
             currentOctave = "octave_2";
+        } else if (note < 11) {
+            currentOctave = "octave_1";
         }
         
         note = letterize_digit(note);
@@ -201,8 +189,9 @@ function drawChord(chord) {
         // draw chord name and formula 
         document.getElementById("chord-symbol").innerText = `Root: ${letterize_digit(root)}`;
         formula.innerText = `Formula: (${chord})`;
-
+        
     };
+    return chord;
 };
 
 
