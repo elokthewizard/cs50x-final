@@ -1,11 +1,16 @@
-import os
+import os, flask, cs50
 from flask import Flask, redirect, request, render_template
+from cs50 import SQL
+
 app = Flask(__name__)
 
 # setup flask to run
 
 if __name__ == '__main__':
 	app.run(debug=True)
+
+# connect sql database
+db = SQL("sqlite:///static/mail.db")
 
 # define routes
 
