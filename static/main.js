@@ -62,7 +62,7 @@ graphics.addEventListener("click", handleKeys);
 
 function handleKeys(e) {
     let classes = e.target.classList;
-    console.log(classes)
+    console.log("Handling: " + classes)
     for (let i=0; i < classes.length; i++) {
         // check if id matches a note or enharmonic
         if (/^[a-zA-Z]$/.test(classes[i]) || /^[a-zA-Z]sharp$/.test(classes[i])) {
@@ -71,6 +71,7 @@ function handleKeys(e) {
         }
         else {
             currentOctave = classes[i];
+            console.log("Current Octave:" + currentOctave)
         }
     }
     mapTones();
@@ -110,6 +111,7 @@ function resetChordGraphic() {
 
     document.getElementById("chord-symbol").innerText = "Root: -";
     formula.innerText = "Formula: (-)";
+    // TODO add chord spelling too!
 };
 
 // map chord
@@ -147,9 +149,10 @@ function drawChord(chord) {
     console.log(chordType);
     for (let note of chord) {
         console.log(note);
-        if (!currentOctave) {
-            currentOctave = "octave_1";
-        }
+        console.log("Current Octave:" + currentOctave)
+        // if (!currentOctave) {
+        //     currentOctave = "octave_1";
+        // }
         // keep notes within 2 octaves 
         if (note > 23) {
             note = note % 24;
@@ -157,7 +160,7 @@ function drawChord(chord) {
         if (note > 11) {
             note = note % 12;
             currentOctave = "octave_2";
-        } else {
+        } else if (!currentOctave) {
             note = note % 12;
             currentOctave = "octave_1";
         }
