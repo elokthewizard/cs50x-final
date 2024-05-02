@@ -74,6 +74,9 @@ function handleKeys(e) {
             console.log("Current Octave:" + currentOctave)
         }
     }
+    if (currentOctave == "octave_2") {
+        root = digitize_note(root) + 12;
+    }
     mapTones();
 }
 
@@ -149,9 +152,10 @@ function drawChord(chord) {
     console.log(chordType);
     for (let note of chord) {
         console.log(note);
-        console.log("Current Octave:" + currentOctave)
+        
         // if (!currentOctave) {
         //     currentOctave = "octave_1";
+        //     console.log("Set to octave_1")
         // }
         // keep notes within 2 octaves 
         if (note > 23) {
@@ -160,7 +164,7 @@ function drawChord(chord) {
         if (note > 11) {
             note = note % 12;
             currentOctave = "octave_2";
-        } else if (!currentOctave) {
+        } else {
             note = note % 12;
             currentOctave = "octave_1";
         }
@@ -191,7 +195,7 @@ function drawChord(chord) {
         };
 
         // draw chord name and formula 
-        document.getElementById("chord-symbol").innerText = `Root: ${letterize_digit(root)}`;
+        document.getElementById("chord-symbol").innerText = `Root: ${letterize_digit(root % 12)}`;
         formula.innerText = `Formula: (${chord})`;
         
     };
