@@ -25,14 +25,12 @@ def index():
 		return "whoopsie"
 	return render_template('index.html')
 
-@app.route('/login', methods=['POST', 'GET'])
+@app.route('/signup', methods=['POST', 'GET'])
 def login():
 	if request.method == "POST":
-		user = request.form['nm']
-		return redirect('success', name=user)
+		print("Yo thats a post fs")
 	else:
-		user = request.form['nm']
-		return redirect('success', name=user)
+		return render_template('signup.html')
 	
 
 @app.route('/about', methods=['GET'])
