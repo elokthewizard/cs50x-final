@@ -4,6 +4,8 @@ const blackKeys = document.querySelectorAll(".svg-black-keys");
 const controlPanel = document.getElementById("controls");
 const graphics = document.querySelector(".graphic");
 
+const chordSymbolDisplay = document.getElementById("chord-symbol");
+const chordTypeDisplay = document.getElementById("chord-type");
 const formula = document.getElementById("formula");
 const invertButton = document.getElementById("invert-btn");
 
@@ -83,7 +85,9 @@ function handleKeys(e) {
 controlPanel.addEventListener("click", controlApp);
 
 function controlApp(e) {
-
+    if (e.target.classList.contains("dropdown-toggle")) {
+        return;
+    }
     if (chordFunctions.hasOwnProperty(e.target.id)) {
         chordType = e.target.id;
         console.log("chordType:" + chordType)
@@ -111,9 +115,10 @@ function resetChordGraphic() {
             rect.style.fill = "#2D2D2A";
         });
     });
-
-    document.getElementById("chord-symbol").innerText = "Root: -";
-    formula.innerText = "Formula: (-)";
+    // draw root, chord type, and formula
+    chordSymbolDisplay.innerText = "-";
+    chordTypeDisplay.innerText = "-";
+    formula.innerText = "(-)";
     // TODO add chord spelling too!
 };
 
@@ -153,11 +158,6 @@ function drawChord(chord) {
     for (let note of chord) {
         console.log(note);
         
-        // if (!currentOctave) {
-        //     currentOctave = "octave_1";
-        //     console.log("Set to octave_1")
-        // }
-        // keep notes within 2 octaves 
         if (note > 23) {
             note = note % 24;
         }
@@ -167,12 +167,12 @@ function drawChord(chord) {
         } else {
             note = note % 12;
             currentOctave = "octave_1";
-        }
+        };
         
         note = letterize_digit(note);
-        console.log(note);
         let styled = document.querySelector(`.${currentOctave}.${note}`);
 
+        // if there a rectangle with those classes exists, color it in
         if (styled) {
             let noteGroup = styled.parentNode.className.baseVal;
             if (noteGroup == "svg-black-keys") {
@@ -181,10 +181,10 @@ function drawChord(chord) {
             else if (noteGroup == "svg-white-keys") {
                 styled.style.fill = "dodgerblue";
             };
-            // Apply transform for smaller screens
+                // Apply transform for smaller screens
             if (window.innerWidth < 500) {
                 styled.style.transform = "translateY(-4px)";
-            // Apply transform for larger screens
+                // Apply transform for larger screens
             } else {
                 styled.style.transform = "translateY(-12px)";
             };
@@ -194,8 +194,9 @@ function drawChord(chord) {
             error.log('No SVG element with ID', note);
         };
 
-        // draw chord name and formula 
-        document.getElementById("chord-symbol").innerText = `Root: ${letterize_digit(root % 12)}`;
+        // draw chord name and formula / UPDATE INFO PANE
+        chordSymbolDisplay.innerText = `${letterize_digit(root % 12)}`;
+        chordTypeDisplay.innerText = `${chordType}`;
         formula.innerText = `Formula: (${chord})`;
         
     };
