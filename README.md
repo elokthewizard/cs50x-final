@@ -33,8 +33,9 @@ a structure made of a collection of 3 or more musical notes at certain intervals
 the “cookie cutter” chord. most chords are built around this basic structure: a root note, a major third, and a perfect fifth. You can build a minor chord by using a minor third in place of the major third
 
 ### Intervals
-_____________________________
+
 | INTERVAL    | DISTANCE    |
+-----------------------------
 | 2nd         | 2 semitones |
 | Minor 3rd   | 3 semitones |
 | Major 3rd   | 4 semitones |
@@ -46,7 +47,7 @@ _____________________________
 | ninth       | octave + 2nd|
 | eleventh    | octave + 4th|
 | thirteenth  | octave + 6th|
-▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+
 ##### Other intervals
 
 **Augmented**
