@@ -27,6 +27,11 @@
     </div>
     
     <main>
+        <div id="information">
+            <div id="chord-symbol"></div>
+            <div id="chord-type"></div>
+            <div id="formula"></div>
+        </div>
 
         <div class="graphic">
             <?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -337,13 +342,8 @@
                 </g>
             </svg>
         </div>
-
+        <button id="invert-btn" class="btn btn-dark" type="button">INVERT</button>
         <div id="controls">
-
-            <div id="information">
-                <div id="chord-symbol"></div>
-                <div id="formula"></div>
-            </div>
 
             <!-- <div id="root-selection">
 
@@ -370,51 +370,84 @@
                 </div>   
 
             </div> -->
-            <hr>
 
             <div id="chord-selection">
 
-                <input class="btn btn-dark" type="button" id="major" name="chord" value="Maj">
-                <input class="btn btn-dark" type="button" id="sixthNinth" name="chord" value="6/9">
-                <input class="btn btn-dark" type="button" id="maj7" name="chord" value="Maj7">
-                <input class="btn btn-dark" type="button" id="maj9" name="chord" value="Maj9">
-                <input class="btn btn-dark" type="button" id="maj11" name="chord" value="Maj11">
-                <input class="btn btn-dark" type="button" id="maj13" name="chord" value="Maj13">
+                <div class="dropdown">
+                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Major Chords
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <input class="btn btn-dark" type="button" id="major" name="chord" value="Maj">
+                        <input class="btn btn-dark" type="button" id="sixthNinth" name="chord" value="6/9">
+                        <input class="btn btn-dark" type="button" id="maj7" name="chord" value="Maj7">
+                        <input class="btn btn-dark" type="button" id="maj9" name="chord" value="Maj9">
+                        <input class="btn btn-dark" type="button" id="maj11" name="chord" value="Maj11">
+                        <input class="btn btn-dark" type="button" id="maj13" name="chord" value="Maj13">
+                    </div>
+                </div>
 
-                <input class="btn btn-dark" type="button" id="minor" name="chord" value="min">
-                <input class="btn btn-dark" type="button" id="min6" name="chord" value="min6">
-                <input class="btn btn-dark" type="button" id="min7" name="chord" value="min7">
-                <input class="btn btn-dark" type="button" id="min9" name="chord" value="min9">
-                <input class="btn btn-dark" type="button" id="min11" name="chord" value="min11">
-                <input class="btn btn-dark" type="button" id="min13" name="chord" value="min13">
+                <div class="dropdown">
+                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Minor Chords
+                    </button>
+                    <div class="dropdown-menu">
+                        <input class="btn btn-dark" type="button" id="minor" name="chord" value="min">
+                        <input class="btn btn-dark" type="button" id="min6" name="chord" value="min6">
+                        <input class="btn btn-dark" type="button" id="min7" name="chord" value="min7">
+                        <input class="btn btn-dark" type="button" id="min9" name="chord" value="min9">
+                        <input class="btn btn-dark" type="button" id="min11" name="chord" value="min11">
+                        <input class="btn btn-dark" type="button" id="min13" name="chord" value="min13">
+                    </div>
+                </div>
 
-                <input class="btn btn-dark" type="button" id="fifth" name="chord" value="5">
-                <input class="btn btn-dark" type="button" id="maj6" name="chord" value="6">
-                <input class="btn btn-dark" type="button" id="dom7" name="chord" value="7">
-                <input class="btn btn-dark" type="button" id="ninth" name="chord" value="9">
-                <input class="btn btn-dark" type="button" id="eleventh" name="chord" value="11">
-                <input class="btn btn-dark" type="button" id="thirteenth" name="chord" value="13">
+                <div class="dropdown">
+                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dominant
+                    </button>
+                    <div class="dropdown-menu">
+                        <input class="btn btn-dark" type="button" id="fifth" name="chord" value="5">
+                        <input class="btn btn-dark" type="button" id="maj6" name="chord" value="6">
+                        <input class="btn btn-dark" type="button" id="dom7" name="chord" value="7">
+                        <input class="btn btn-dark" type="button" id="ninth" name="chord" value="9">
+                        <input class="btn btn-dark" type="button" id="eleventh" name="chord" value="11">
+                        <input class="btn btn-dark" type="button" id="thirteenth" name="chord" value="13">
+                    </div>
+                </div>
                 
-                <input class="btn btn-dark" type="button" id="add2" name="chord" value="add2">
-                <input class="btn btn-dark" type="button" id="add9" name="chord" value="add9">
-                <input class="btn btn-dark" type="button" id="sevenMinusFive" name="chord" value="7-5">
-                <input class="btn btn-dark" type="button" id="sevenPlusFive" name="chord" value="7+5">
-                <input class="btn btn-dark" type="button" id="sus2" name="chord" value="sus2">
-                <input class="btn btn-dark" type="button" id="sus4" name="chord" value="sus4">
+                <div class="dropdown">
+                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Modified
+                    </button>
+                    <div class="dropdown-menu">
+                        <input class="btn btn-dark" type="button" id="add2" name="chord" value="add2">
+                        <input class="btn btn-dark" type="button" id="add9" name="chord" value="add9">
+                        <input class="btn btn-dark" type="button" id="sevenMinusFive" name="chord" value="7-5">
+                        <input class="btn btn-dark" type="button" id="sevenPlusFive" name="chord" value="7+5">
+                        <input class="btn btn-dark" type="button" id="sus2" name="chord" value="sus2">
+                        <input class="btn btn-dark" type="button" id="sus4" name="chord" value="sus4">
+                    </div>
+                </div>
 
-                <input class="btn btn-dark" type="button" id="minMaj7" name="chord" value="minMaj7">
-                <input class="btn btn-dark" type="button" id="diminished" name="chord" value="dim">
-                <input class="btn btn-dark" type="button" id="dim7" name="chord" value="dim7">
-                <input class="btn btn-dark" type="button" id="min7b5" name="chord" value="min7b5">
-                <input class="btn btn-dark" type="button" id="aug" name="chord" value="aug">
-                <input class="btn btn-dark" type="button" id="aug7" name="chord" value="aug7">
+                <div class="dropdown">
+                    <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Modified Contd.
+                    </button>
+                    <div class="dropdown-menu">
+                        <input class="btn btn-dark" type="button" id="minMaj7" name="chord" value="minMaj7">
+                        <input class="btn btn-dark" type="button" id="diminished" name="chord" value="dim">
+                        <input class="btn btn-dark" type="button" id="dim7" name="chord" value="dim7">
+                        <input class="btn btn-dark" type="button" id="min7b5" name="chord" value="min7b5">
+                        <input class="btn btn-dark" type="button" id="aug" name="chord" value="aug">
+                        <input class="btn btn-dark" type="button" id="aug7" name="chord" value="aug7">
+                    </div>
+                </div>
 
             </div>
 
             
 
         </div>
-        <button id="invert-btn" class="btn btn-dark" type="button">INVERT</button>
         
         <hr>
     </main>
