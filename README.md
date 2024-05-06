@@ -35,7 +35,7 @@ the “cookie cutter” chord. most chords are built around this basic structure
 ### Intervals
 
 | INTERVAL    | DISTANCE    |
------------------------------
+|-------------|-------------|
 | 2nd         | 2 semitones |
 | Minor 3rd   | 3 semitones |
 | Major 3rd   | 4 semitones |
