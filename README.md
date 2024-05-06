@@ -20,6 +20,46 @@ For a crash course on open source software please check out:
 ### Getting started
 To start exploring with ToneMap, click a note on the keyboard. The program will automatically calculate the notes at the intervals that make up that note's major triad, and also display the formula used to make that chord. Selecting a chord first will default the rootnote to C, and build the shape you selected. 
 
+#### I’m actually totally lost, what is going on here?
+ToneMap calculates the intervals of a given chord according to their tonal relationships, then displays them in order to help visualize the tonal relationships between each note. It shows off that many chords actually share a lot of notes, and can be “spelled” the same, yet have a different name! Still confused? Here’s a short glossary for the uninitiated:
+
+#### Vocabulary
+
+root
+the note we are building the rest of the notes off of! we can think of this as home base, or the parent of all the harmonic babies
+
+interval
+a name for the note at a distance from a (root) note, that also describes the relationship between the two. stacking multiple above a root makes a chord!
+
+chord
+a structure made of a collection of 3 or more musical notes at certain intervals.
+
+triad
+the “cookie cutter” chord. most chords are built around this basic structure: a root note, a major third, and a perfect fifth. You can build a minor chord by using a minor third in place of the major third
+
+augmented
+the value of a perfect interval raised by one semitone
+
+dimished
+the value of a perfect interval lowered by one semitone
+
+#### Intervals
+
+_____________________________
+| INTERVAL    | DISTANCE    |
+| 2nd         | 2 semitones |
+| Minor 3rd   | 3 semitones |
+| Major 3rd   | 4 semitones |
+| 4th         | 5 semitones |
+| 5th         | 7 semitones |
+| 6th         | 6 semitones |
+| 7th         | 10 semitones|
+| major 7th   | 11 semitones|
+| ninth       | octave + 2nd|
+| eleventh    | octave + 4th|
+| thirteenth  | octave + 6th|
+▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔
+
 ### Change inversion
 A lot of piano chords can be played in one octave, but once you add enough color, chord shapes can become quite dense. For this reason, ToneMap allows you to invert the spelling of the currently selected chord. Just hit the invert button and watch the magic happen! Chords will wrap infinitely across 2 octaves, effectively allowing reference to infinite inversions. In the event no chord or root has been selected, the program defaults to C Major. Not familiar with the concept? Start [here](https://en.wikipedia.org/wiki/Inversion_(music)). 
 
