@@ -19,20 +19,22 @@
         </div>
     </div>
     <main>
-        <form>
+        <form action="/signup" method="POST">
           <div class="upper-signup">
             <h2>Wanna hear more?</h2>
             <p>Sign up to hear about the latest updates, new tools, etc!</p>
           </div>
+          {{thanks}}
+          {{msg}}
               
             <div class="hr">
             <div class="form-group clearfix">
               <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
               <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <input name="checkbox" type="checkbox" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1">Please send me emails!</label>
             </div>
             <button type="submit" class="btn btn-primary float-end">Submit</button>
