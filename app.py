@@ -31,20 +31,28 @@ def signup():
 		print("Yo thats a post fs")
 		email = request.form.get("email")
 		name = request.form.get("name")
+		checkbox = request.form.get("checkbox")
+		if checkbox != "on":
+			msg = "You have to tick the box..."
+			return render_template("signup.html", msg=msg)
 		
 		# thanks tecadmin.net!
 		email_regex = r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
 		if re.match(email_regex, email):
 			check_email = db.execute("SELECT COUNT(*) FROM mail_list WHERE email = ?", (email))
 			check_name = db.execute("SELECT COUNT(*) FROM mail_list WHERE name = ?", (name))
-			print(check_email)
+		
 			if int(check_email[0]['COUNT(*)']) > 0 or int(check_name[0]['COUNT(*)']) > 0:
-				msg = "User already exists"
+				msg = "Thanks for signing up... again!"
 				return render_template('signup.html', msg=msg) 
-			db.execute("INSERT INTO mail_list (email, name)) VALUES (?, ?)", (email, name))
-			db.commit()
-			thanks = "Thanks for signing up!"
-			return render_template('signup.html', thanks=thanks) 
+			
+			if email is None or name is None:
+				msg = "name/ email cannot be blank"
+				render_template("signup.html", msg=msg)
+
+			db.execute("INSERT INTO mail_list (email, name) VALUES (:email, :name)", email=email, name=name)
+			msg = "Thanks for signing up!"
+			return render_template('signup.html', msg=msg) 
 		else:
 			return False
 		
