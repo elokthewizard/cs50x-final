@@ -5,34 +5,37 @@ ToneMap is a piano chord/ music theory reference cheatsheet -- for fans and newc
 ## Table of Contents
 
 - [Usage](#usage)
+- [Totally Lost?](#im-actually-totally-lost-what-is-going-on-here)
 - [Support](#support)
 - [Contributing](#contributing) 
 
 ## Usage
 
-Current versions of ToneMap run entirely on the web, but mobile versions for ios and android are planned for development in the future. 
-
-### Getting started
 To start exploring with ToneMap, click a note on the keyboard. The program will automatically calculate the notes at the intervals that make up that note's major triad, and also display the formula used to make that chord. Selecting a chord first will default the rootnote to C, and build the shape you selected. 
 
-### I’m actually totally lost/ what is going on here?
+Current versions of ToneMap run entirely on the web, but mobile versions for ios and android are planned for development in the future. 
+
+## I’m actually totally lost/ what is going on here?
 ToneMap calculates the intervals of the notes that make up a given chord according to their tonal relationships, then displays them in order to help visualize the tonal relationships between each note. It shows off that many chords actually share a lot of notes, and can be “spelled” the same, yet have a different name! Still confused? Here’s a short glossary for the uninitiated:
 
-#### Vocabulary
+### Vocabulary
+---
 
-**Root**
-the note we are building the rest of the notes off of! we can think of this as home base, or the parent of all the harmonic babies
+#### **Root**
+A note used as the base reference point in calculating a chord. We can think of this as home base, or as the *root* of the notes that are *tonally related*
 
-**Interval**
-a name for the note at a distance from a (root) note, that also describes the relationship between the two. stacking multiple above a root makes a chord!
+#### **Interval**
+The name for the note at a distance from a (root) note, that also describes the relationship between the two. stacking multiple above a root makes a chord!
 
-**Chord**
-a structure made of a collection of 3 or more musical notes at certain intervals.
+#### **Chord**
+A structure made of a collection of 3 or more musical notes at certain intervals. Can have many different flavors.
 
-**Triad**
+#### **Triad**
 the “cookie cutter” chord. most chords are built around this basic structure: a root note, a major third, and a perfect fifth. You can build a minor chord by using a minor third in place of the major third
 
-### Intervals
+Picturing a chord as a tree -- the roots can be represented by their namesake, and each interval you add to the chord can be represented as a branch, or an extension of that tree. Depending on where the roots began, the 
+
+## Intervals
 
 | INTERVAL    | DISTANCE    |
 |-------------|-------------|
@@ -48,7 +51,8 @@ the “cookie cutter” chord. most chords are built around this basic structure
 | eleventh    | octave + 4th|
 | thirteenth  | octave + 6th|
 
-##### Other intervals
+#### Other intervals
+---
 
 **Augmented**
 the value of a perfect interval raised by one semitone
