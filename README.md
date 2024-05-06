@@ -1,3 +1,8 @@
+# ToneMap
+#### [Video Demo](https://youtu.be/OnnOuVt8rfI)
+#### Description:
+Listen to me stammer through a short explanation and demo of the features of ToneMap!
+
 # README
 
 ToneMap is a piano chord/ music theory reference cheatsheet -- for fans and newcomers alike! Whether you're an expert around these parts or exploring these soundscapes for the very first time, I hope we can help you keep from getting lost!

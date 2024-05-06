@@ -14,10 +14,6 @@ db = SQL("sqlite:///static/mail.db")
 
 # define routes
 
-@app.route('/success/<name>')
-def success(name):
-	return 'welcome %s' % name
-
 @app.route('/', methods=['POST', 'GET'])
 def index():
 	if request.method == "POST":
@@ -28,7 +24,6 @@ def index():
 @app.route('/signup', methods=['POST', 'GET'])
 def signup():
 	if request.method == "POST":
-		print("Yo thats a post fs")
 		email = request.form.get("email")
 		name = request.form.get("name")
 		checkbox = request.form.get("checkbox")
