@@ -41,8 +41,8 @@ def signup():
 			if int(check_email[0]['COUNT(*)']) > 0 or int(check_name[0]['COUNT(*)']) > 0:
 				msg = "User already exists"
 				return render_template('signup.html', msg=msg) 
-			# db.execute("INSERT INTO mail_list (email, name)) VALUES (?, ?)", (email, name))
-			# db.commit()
+			db.execute("INSERT INTO mail_list (email, name)) VALUES (?, ?)", (email, name))
+			db.commit()
 			thanks = "Thanks for signing up!"
 			return render_template('signup.html', thanks=thanks) 
 		else:
